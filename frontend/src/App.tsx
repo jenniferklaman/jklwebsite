@@ -1,41 +1,45 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import 'materialize-css/dist/css/materialize.min.css';
+import M from 'materialize-css'; 
 
-// Import your page components
-import PersonalPage from './pages/personal/personal';
-import ProfessionalPage from './pages/professional/professional';
-import PublicationsPage from './pages/professional/publications';
+// import './styles.css'; // custom CSS file
 
 const App = () => {
+  // Initialize Materialize components like Modals, Dropdowns, etc.
+  useEffect(() => {
+    M.AutoInit();
+  }, []);
+
   return (
-    <Router>
-      <div>
-        <h1>Welcome to Jen's World</h1>
-        {/* Navigation links */}
-        <nav>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/personal">Personal</a></li>
-            <li><a href="/professional">Professional</a></li>
+    <div className="container">
+      {/* Header */}
+      <nav className="blue">
+        <div className="nav-wrapper">
+          <a href="#" className="brand-logo center">Jen's World</a>
+          <ul id="nav-mobile" className="left">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#personal">Personal</a></li>
+            <li><a href="#professional">Professional</a></li>
           </ul>
-        </nav>
+        </div>
+      </nav>
 
-        {/* Switch to render the correct page based on the URL */}
-        <Routes>
-          {/* Home Page */}
-          <Route path="/" element={<h2>Welcome to the React App!</h2>} />
+      {/* Main Content */}
+      <div className="section custom-section">
+        <h2>Welcome to the React App!</h2>
+        <p>This is a section of the page. You can add more content here.</p>
 
-          {/* Personal Page */}
-          <Route path="/personal" element={<PersonalPage />} />
-
-          {/* Professional Page */}
-          <Route path="/professional" element={<ProfessionalPage />} />
-
-          {/* Publications Page */}
-          <Route path="/professional/publications" element={<PublicationsPage />} />
-        </Routes>
+        {/* Example Button */}
+        <a className="waves-effect waves-light btn">Click Me</a>
       </div>
-    </Router>
+
+      {/* Footer */}
+      <footer className="page-footer blue">
+        <div className="container">
+          <p className="center-align">&copy; 2025 Jen's World</p>
+        </div>
+      </footer>
+    </div>
   );
 };
 
