@@ -1,7 +1,9 @@
-/* App.css */
-
 /* Reset some basic styles */
 body {
+  background-color: white;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   font-family: 'Poppins', sans-serif;
   background-color: #f0f8ff;
   color: #333;
@@ -11,61 +13,72 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: 100vh; /* Ensures the footer stays at the bottom */
+  min-height: 100vh;
+  padding-top: 80px;
 }
 
+/* Header Style */
 header {
-  background-image: url('fmetro.jpg');  /* Direct reference from the public folder */
+  background-color: #f1f1f1;
   width: 100%;
-  height: 100vh;
-  padding: 0 0 10%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin-left: auto;
-  margin-right: auto;
+  height: 80px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* Ensures space between logo and nav */
   align-items: center;
-  color: white;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  overflow: hidden;
 }
 
-
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Logo */
+header .logo {
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  margin-right: 20px;
 }
 
-header h1 {
-  font-size: 36px;
-}
-
-nav {
+/* Navigation Style */
+.header-nav {
   display: flex;
   gap: 20px;
 }
 
-nav a {
-  color: white;
+header a {
+  color: black;
+  text-align: center;
+  padding: 12px;
   text-decoration: none;
   font-size: 18px;
-  font-weight: 600;
-  text-transform: uppercase;
-  transition: color 0.3s ease;
+  line-height: 25px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
-nav a:hover {
-  color: #ffd700; /* Golden color on hover */
+/* Active Link */
+header a.active {
+  background-color: dodgerblue;
+  color: white;
 }
 
+header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Main content */
 .main-content {
-  flex: 1; /* Makes sure the content area grows to fill remaining space */
+  padding-top: 100px; /* Space for the fixed header */
   text-align: center;
+  width: 100%;
   padding: 40px;
-  width: 100%; /* Ensures content takes full width */
 }
 
+/* Button */
 button {
   background-color: #ff91a1;
   color: white;
@@ -78,20 +91,29 @@ button {
 }
 
 button:hover {
-  transform: scale(1.1); /* Makes button bounce slightly on hover */
+  transform: scale(1.1);
   background-color: #ff6384;
 }
 
-/* Footer (Bottom Banner) */
+/* Footer */
 footer {
-  width: fit-content(10em); /* Makes the footer width fit its content */
-  background-color: #69c1d6;
+  width: fit-content(10em);
+  background-color: aliceblue;
   text-align: center;
   padding: 20px 0;
-  margin-top: auto; /* Ensures footer is pushed to the bottom */
+  margin-top: auto;
 }
 
 footer p {
   margin: 0;
   font-size: 14px;
+}
+
+
+/* Responsive Design for Small Screens */
+@media screen and (max-width: 500px) {
+  .header-nav {
+    flex-direction: column; /* Stack the navigation links vertically */
+    gap: 10px; /* Adjust space between links */
+  }
 }
