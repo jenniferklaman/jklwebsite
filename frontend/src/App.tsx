@@ -1,16 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 const App: React.FC = () => {
+  const [professionalOpen, setProfessionalOpen] = useState(false);
+  const [personalOpen, setPersonalOpen] = useState(false);
+
+  // Handle mouse enter/leave to toggle dropdown visibility
+  const handleProfessionalEnter = () => setProfessionalOpen(true);
+  const handleProfessionalLeave = () => setProfessionalOpen(false);
+
+  const handlePersonalEnter = () => setPersonalOpen(true);
+  const handlePersonalLeave = () => setPersonalOpen(false);
+
   return (
     <div className="App">
       {/* Header with navigation links */}
       <header>
-        <a href="#home" className="logo">Jen's World</a>
+        <a href="#home" className="logo">JKL</a>
         <nav className="header-nav">
           <a href="#home" className="active">Home</a>
-          <a href="#personal">Personal</a>
-          <a href="#professional">Professional</a>
+
+          {/* Professional Dropdown */}
+          <div
+            className="dropdown"
+            onMouseEnter={handleProfessionalEnter}
+            onMouseLeave={handleProfessionalLeave}
+          >
+            <a href="#professional">Professional</a>
+            {professionalOpen && (
+              <div className="dropdown-content">
+                <a href="#resume">Resume</a>
+                <a href="#projects">Projects</a>
+              </div>
+            )}
+          </div>
+
+          {/* Personal Dropdown */}
+          <div
+            className="dropdown"
+            onMouseEnter={handlePersonalEnter}
+            onMouseLeave={handlePersonalLeave}
+          >
+            <a href="#personal">Personal</a>
+            {personalOpen && (
+              <div className="dropdown-content">
+                <a href="#personal-projects">Projects</a>
+                <a href="#about-me">About Me</a>
+              </div>
+            )}
+          </div>
         </nav>
       </header>
 
@@ -25,7 +63,7 @@ const App: React.FC = () => {
 
       {/* Footer section */}
       <footer>
-        <p>© 2025 Jen's World</p>
+        <p>© 2025 Jennifer K Laman</p>
       </footer>
     </div>
   );
