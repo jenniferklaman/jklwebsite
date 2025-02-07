@@ -1,43 +1,30 @@
-import React, { useEffect } from 'react';
-import 'materialize-css/dist/css/materialize.min.css';
-import M from 'materialize-css'; 
+import React from 'react';
+import './App.css';
 
-// import './styles.css'; // custom CSS file
-
-const App = () => {
-  // Initialize Materialize components like Modals, Dropdowns, etc.
-  useEffect(() => {
-    M.AutoInit();
-  }, []);
-
+const App: React.FC = () => {
   return (
-    <div className="container">
-      {/* Header */}
-      <nav className="blue">
-        <div className="nav-wrapper">
-          <a href="#" className="brand-logo center">Jen's World</a>
-          <ul id="nav-mobile" className="left">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#personal">Personal</a></li>
-            <li><a href="#professional">Professional</a></li>
-          </ul>
+    <div className="App">
+      <header>
+        <div className="header-content">
+          <h1>Jen's World</h1>
+          <nav>
+            <a href="#home">Home</a>
+            <a href="#personal">Personal</a>
+            <a href="#professional">Professional</a>
+          </nav>
         </div>
-      </nav>
+      </header>
 
-      {/* Main Content */}
-      <div className="section custom-section">
+      <div className="main-content">
         <h2>Welcome to the React App!</h2>
         <p>This is a section of the page. You can add more content here.</p>
-
-        {/* Example Button */}
-        <a className="waves-effect waves-light btn">Click Me</a>
+        <button>
+          <i className="fas fa-heart"></i> CLICK ME
+        </button>
       </div>
 
-      {/* Footer */}
-      <footer className="page-footer blue">
-        <div className="container">
-          <p className="center-align">&copy; 2025 Jen's World</p>
-        </div>
+      <footer>
+        <p>© 2025 Jen's World</p>
       </footer>
     </div>
   );

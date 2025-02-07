@@ -1,38 +1,97 @@
-.App {
-  text-align: center;
-}
+/* App.css */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Reset some basic styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0f8ff;
+  color: #333;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh; /* Ensures the footer stays at the bottom */
+}
+
+header {
+  background-image: url('fmetro.jpg');  /* Direct reference from the public folder */
+  width: 100%;
+  height: 100vh;
+  padding: 0 0 10%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+header h1 {
+  font-size: 36px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffd700; /* Golden color on hover */
+}
+
+.main-content {
+  flex: 1; /* Makes sure the content area grows to fill remaining space */
+  text-align: center;
+  padding: 40px;
+  width: 100%; /* Ensures content takes full width */
+}
+
+button {
+  background-color: #ff91a1;
+  color: white;
+  padding: 12px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.1); /* Makes button bounce slightly on hover */
+  background-color: #ff6384;
+}
+
+/* Footer (Bottom Banner) */
+footer {
+  width: fit-content(10em); /* Makes the footer width fit its content */
+  background-color: #69c1d6;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: auto; /* Ensures footer is pushed to the bottom */
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
 }
