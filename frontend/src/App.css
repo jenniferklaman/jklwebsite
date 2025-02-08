@@ -112,10 +112,23 @@ header a:hover {
   background-color: #ff6384;
 }
 
+/* Reset body styles */
+body {
+  background-color: #f0f8ff;  /* Match your previous background color */
+  font-family: 'Georgia', sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+}
 
 /* Main content */
 .main-content {
-  padding-top: 80px; /* Align with the header height */
+  padding-top: 90px; /* Align with the header height */
   text-align: center;
   width: 100%;
   padding: 40px;
