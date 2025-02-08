@@ -5,6 +5,9 @@ import Resume from './pages/Resume';
 import ProfessionalProjects from './pages/ProfProjects';
 import PersonalProjects from './pages/PerProjects';
 import AboutMe from './pages/Aboutme';
+import tucciImage from './assets/tucci.png';
+import ccMenu from './assets/ccMenu.png';
+
 
 const App: React.FC = () => {
   const [professionalOpen, setProfessionalOpen] = useState(false);
@@ -71,49 +74,70 @@ const App: React.FC = () => {
               path="/"
               element={
                 <div className="home-container">
-                  {/* About Me Section */}
-                  <section className="intro">
-                    <h1>Jennifer K Laman</h1>
-                    <p>
-                      I am currently an undergraduate student at the University of Florida studying linguistics, 
-                      computer science, and mathematics. I am passionate about many subjects, including geospatial 
-                      analysis, machine learning, and game development. Outside of school, 
-                      I enjoy reading, writing, painting, watching movies, and playing Magic: The Gathering with 
-                      my friends. I also have an awesome cat named Stanley Tucci! 
-                    </p>
-                    <Link to="/about-me" className="btn">📖 Read More</Link>
-                  </section>
+                  <div className="content-wrapper">
+                    {/* About Me Section */}
+                    <section className="intro-container">
+                      {/* Text Section */}
+                      <div className="intro-text">
+                        <h1>Jennifer K Laman</h1>
+                        <p>
+                          I am currently an undergraduate student at the University of Florida studying linguistics, 
+                          computer science, and mathematics. I am passionate about many subjects, including geospatial 
+                          analysis, machine learning, and game development. Outside of school, 
+                          I enjoy reading, writing, painting, watching movies, and playing Magic: The Gathering with 
+                          my friends. I also have an awesome cat named Stanley Tucci! 
+                        </p>
+                        <Link to="/about-me" className="btn">📖 Read More</Link>
+                      </div>
+                      {/* Image Section */}
+                      <img
+                        src={tucciImage}
+                        alt="Jennifer K Laman"
+                        className="profile-image"
+                      />
+                    </section>
 
-                  {/* Navigation Buttons */}
-                  <section className="quick-links">
-                    <Link to="/resume" className="btn">📄 View My Resume</Link>
-                    <Link to="/professional-projects" className="btn">💼 See My Projects</Link>
-                    <Link to="/personal-projects" className="btn">🎨 Personal Projects</Link>
-                  </section>
-
-                  {/* Featured Project */}
-                  <section className="featured-project">
+                    {/* Navigation Buttons Box */}
+                    <section className="quick-links-box">
+                      <h2>Explore</h2>
+                      <Link to="/resume" className="btn">📄 View My Resume</Link>
+                      <Link to="/professional-projects" className="btn">💼 See My Projects</Link>
+                      <Link to="/personal-projects" className="btn">🎨 Personal Projects</Link>
+                    </section>
+                  </div>
+                  
+                {/* Featured Project Box */}
+                <section className="featured-project-box">
+                  {/* Text Section */}
+                  <div className="featured-project-text">
                     <h2>Featured Project: Castle Camden</h2>
                     <p>
-                    Castle Camden is a side-scrolling platformer with classic pixel-art aesthetics. Set in a mysterious 
-                    fortress filled with secrets, players navigate nine 
-                    levels, battle enemies, and uncover the hidden lore of Camden Castle. This project is dedicated to my roommates (and cat):
-                    Eden, Alyssa, and Ale. If you know them in real life, you would be inspired by them as well. 
-                    Stay tuned for updates on development progress and future releases!
+                      Castle Camden is a side-scrolling platformer with a classic pixel-art aesthetic. Set in a mysterious 
+                      fortress filled with secrets, players navigate nine 
+                      levels, battle enemies, and uncover the hidden lore of Camden Castle. This project is dedicated to my roommates (and cat):
+                      Eden, Alyssa, and Ale. If you know them in real life, you would be inspired by them as well. 
+                      Stay tuned for updates on development progress and future releases!
                     </p>
-                    <img src="https://source.unsplash.com/800x400/?ai,language" alt="Featured Project" className="project-img" />
+                    {/* Add the button-styled link */}
                     <Link to="/professional-projects" className="btn">🔍 Explore Project</Link>
-                  </section>
-
-                  {/* Contact & Social Links */}
-                  <section className="contact">
-                    <h2>Get in Touch</h2>
-                    <p>Connect with me on these platforms!:</p>
-                    <div className="social-links">
-                    <a href="https://github.com/jenniferklaman" target="_blank" rel="noopener noreferrer">🐙 GitHub</a>
-                    <a href="https://www.linkedin.com/in/jennifer-laman-615843262/" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
-                    <a href="mailto:jenniferklaman@gmail.com">📧 Email</a>
                   </div>
+
+                  {/* Image Section */}
+                  <img src= {ccMenu} alt="Featured Project" className="featured-project-img" />
+                </section>
+
+
+                  {/* Contact Info Box */}
+                  <section className="contact-box">
+                    <div className="contact">
+                      <h2>Get in Touch</h2>
+                      <p>Connect with me on these platforms:</p>
+                      <div className="social-links">
+                        <a href="https://github.com/jenniferklaman" target="_blank" rel="noopener noreferrer">🐙 GitHub</a>
+                        <a href="https://www.linkedin.com/in/jennifer-laman-615843262/" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
+                        <a href="mailto:jenniferklaman@gmail.com">📧 Email</a>
+                      </div>
+                    </div>
                   </section>
                 </div>
               }
@@ -128,6 +152,10 @@ const App: React.FC = () => {
         {/* Footer section */}
         <footer>
           <p>© 2025 Jennifer K Laman</p>
+          {/* Back to Top Button */}
+          <button id="back-to-top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            ⬆️ Back to Top
+          </button>
         </footer>
       </div>
     </Router>
