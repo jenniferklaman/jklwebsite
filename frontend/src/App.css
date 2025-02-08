@@ -118,7 +118,7 @@ body {
   font-family: 'Georgia', sans-serif;
   color: #333;
   margin: 0;
-  padding: 0;
+  padding-top: 80px; /* FIX: Push content down below the header */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -126,12 +126,15 @@ body {
   min-height: 100vh;
 }
 
+
 /* Main content */
 .main-content {
+  position: relative;
   padding-top: 90px; /* Align with the header height */
   text-align: center;
   width: 100%;
   padding: 40px;
+
 }
 
 /* Button */
