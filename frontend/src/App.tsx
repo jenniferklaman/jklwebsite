@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Resume from './Resume';
-import ProfessionalProjects from './ProfProjects';
-import PersonalProjects from './PerProjects';
-import AboutMe from './Aboutme';
+import Resume from './pages/Resume';
+import ProfessionalProjects from './pages/ProfProjects';
+import PersonalProjects from './pages/PerProjects';
+import AboutMe from './pages/Aboutme';
 
 const App: React.FC = () => {
   const [professionalOpen, setProfessionalOpen] = useState(false);

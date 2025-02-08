@@ -4,7 +4,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Georgia', sans-serif;
   background-color: #f0f8ff;
   color: #333;
   margin: 0;
@@ -14,7 +14,7 @@ body {
   align-items: center;
   justify-content: flex-start;
   min-height: 100vh;
-  padding-top: 80px;
+  padding-top: 80px; /* Align with the header height */
 }
 
 /* Header Style */
@@ -109,7 +109,7 @@ header a:hover {
 
 /* Main content */
 .main-content {
-  padding-top: 100px; /* Space for the fixed header */
+  padding-top: 80px; /* Align with the header height */
   text-align: center;
   width: 100%;
   padding: 40px;
