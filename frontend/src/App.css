@@ -37,6 +37,7 @@ header .logo {
 }
 
 /* Tab Links */
+/* Tab Links */
 header a {
   color: black;
   text-align: center;
@@ -45,18 +46,24 @@ header a {
   font-size: 18px;
   line-height: 25px;
   border-radius: 4px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Active Link */
+/* Active Tab */
 header a.active {
   background-color: plum;
   color: white;
 }
 
+/* NEW: Make Hover Work Only When Tab Isn't Active */
+header a:hover:not(.active) {
+  background-color: plum; /* Highlight hovered tab */
+  color: white;
+}
+
+/* NEW: When Hovering a New Tab, Remove Purple From Active */
 header a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: plum !important; /* Override active tab temporarily */
 }
 
 /* Dropdown Container */
