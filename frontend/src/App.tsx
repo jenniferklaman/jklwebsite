@@ -7,7 +7,7 @@ import PersonalProjects from './pages/PerProjects';
 import AboutMe from './pages/Aboutme';
 import tucciImage from './assets/tucci.png';
 import ccMenu from './assets/ccMenu.png';
-
+import { motion } from 'framer-motion';
 
 const App: React.FC = () => {
   const [professionalOpen, setProfessionalOpen] = useState(false);
@@ -17,6 +17,16 @@ const App: React.FC = () => {
   const handleProfessionalLeave = () => setProfessionalOpen(false);
   const handlePersonalEnter = () => setPersonalOpen(true);
   const handlePersonalLeave = () => setPersonalOpen(false);
+
+  const dropdownVariants = {
+    hidden: { opacity: 0, y: -10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
+  };
+
+  const fadeIn = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1 } }
+  };
 
   return (
     <Router>
@@ -35,10 +45,16 @@ const App: React.FC = () => {
               >
                 <a href="#professional">Professional</a>
                 {professionalOpen && (
-                  <div className="dropdown-content">
+                  <motion.div
+                    className="dropdown-content"
+                    variants={dropdownVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                  >
                     <Link to="/resume">Resume</Link>
                     <Link to="/professional-projects">Projects</Link>
-                  </div>
+                  </motion.div>
                 )}
               </div>
               {/* Personal Dropdown */}
@@ -49,10 +65,16 @@ const App: React.FC = () => {
               >
                 <a href="#personal">Personal</a>
                 {personalOpen && (
-                  <div className="dropdown-content">
+                  <motion.div
+                    className="dropdown-content"
+                    variants={dropdownVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                  >
                     <Link to="/personal-projects">Projects</Link>
                     <Link to="/about-me">About Me</Link>
-                  </div>
+                  </motion.div>
                 )}
               </div>
             </nav>
@@ -76,7 +98,12 @@ const App: React.FC = () => {
                 <div className="home-container">
                   <div className="content-wrapper">
                     {/* About Me Section */}
-                    <section className="intro-container">
+                    <motion.section
+                      className="intro-container"
+                      variants={fadeIn}
+                      initial="hidden"
+                      animate="visible"
+                    >
                       {/* Text Section */}
                       <div className="intro-text">
                         <h1>Jennifer K Laman</h1>
@@ -95,40 +122,54 @@ const App: React.FC = () => {
                         alt="Jennifer K Laman"
                         className="profile-image"
                       />
-                    </section>
+                    </motion.section>
 
                     {/* Navigation Buttons Box */}
-                    <section className="quick-links-box">
+                    <motion.section
+                      className="quick-links-box"
+                      variants={fadeIn}
+                      initial="hidden"
+                      animate="visible"
+                    >
                       <h2>Explore</h2>
                       <Link to="/resume" className="btn">📄 View My Resume</Link>
                       <Link to="/professional-projects" className="btn">💼 See My Projects</Link>
                       <Link to="/personal-projects" className="btn">🎨 Personal Projects</Link>
-                    </section>
+                    </motion.section>
                   </div>
                   
-                {/* Featured Project Box */}
-                <section className="featured-project-box">
-                  {/* Text Section */}
-                  <div className="featured-project-text">
-                    <h2>Featured Project: Castle Camden</h2>
-                    <p>
-                      Castle Camden is a side-scrolling platformer with a classic pixel-art aesthetic. Set in a mysterious 
-                      fortress filled with secrets, players navigate nine 
-                      levels, battle enemies, and uncover the hidden lore of Camden Castle. This project is dedicated to my roommates (and cat):
-                      Eden, Alyssa, and Ale. If you know them in real life, you would be inspired by them as well. 
-                      Stay tuned for updates on development progress and future releases!
-                    </p>
-                    {/* Add the button-styled link */}
-                    <Link to="/professional-projects" className="btn">🔍 Explore Project</Link>
-                  </div>
+                  {/* Featured Project Box */}
+                  <motion.section
+                    className="featured-project-box"
+                    variants={fadeIn}
+                    initial="hidden"
+                    animate="visible"
+                  >
+                    {/* Text Section */}
+                    <div className="featured-project-text">
+                      <h2>Featured Project: Castle Camden</h2>
+                      <p>
+                        Castle Camden is a side-scrolling platformer with a classic pixel-art aesthetic. Set in a mysterious 
+                        fortress filled with secrets, players navigate nine 
+                        levels, battle enemies, and uncover the hidden lore of Camden Castle. This project is dedicated to my roommates (and cat):
+                        Eden, Alyssa, and Ale. If you know them in real life, you would be inspired by them as well. 
+                        Stay tuned for updates on development progress and future releases!
+                      </p>
+                      {/* Add the button-styled link */}
+                      <Link to="/professional-projects" className="btn">🔍 Explore Project</Link>
+                    </div>
 
-                  {/* Image Section */}
-                  <img src= {ccMenu} alt="Featured Project" className="featured-project-img" />
-                </section>
-
+                    {/* Image Section */}
+                    <img src={ccMenu} alt="Featured Project" className="featured-project-img" />
+                  </motion.section>
 
                   {/* Contact Info Box */}
-                  <section className="contact-box">
+                  <motion.section
+                    className="contact-box"
+                    variants={fadeIn}
+                    initial="hidden"
+                    animate="visible"
+                  >
                     <div className="contact">
                       <h2>Get in Touch</h2>
                       <p>Connect with me on these platforms:</p>
@@ -138,7 +179,7 @@ const App: React.FC = () => {
                         <a href="mailto:jenniferklaman@gmail.com">📧 Email</a>
                       </div>
                     </div>
-                  </section>
+                  </motion.section>
                 </div>
               }
             />
