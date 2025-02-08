@@ -152,7 +152,7 @@ const App: React.FC = () => {
                         Castle Camden is a side-scrolling platformer with a classic pixel-art aesthetic. Set in a mysterious 
                         fortress filled with secrets, players navigate nine 
                         levels, battle enemies, and uncover the hidden lore of Camden Castle. This project is dedicated to my roommates (and cat):
-                        Eden, Alyssa, and Ale. If you know them in real life, you would be inspired by them as well. 
+                        Eden, Alyssa, and Ale. If you know them, you would be inspired by them as well. 
                         Stay tuned for updates on development progress and future releases!
                       </p>
                       {/* Add the button-styled link */}
@@ -171,7 +171,7 @@ const App: React.FC = () => {
                     animate="visible"
                   >
                     <div className="contact">
-                      <h2>Get in Touch</h2>
+                      <h2>Links!</h2>
                       <p>Connect with me on these platforms:</p>
                       <div className="social-links">
                         <a href="https://github.com/jenniferklaman" target="_blank" rel="noopener noreferrer">🐙 GitHub</a>
