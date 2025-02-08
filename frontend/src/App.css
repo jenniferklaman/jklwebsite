@@ -97,13 +97,14 @@ header a:hover {
 #download-resume-button {
   background-color: #ff91a1;
   color: white;
-  padding: 12px 30px;
+  padding: 12px 20px; /* smaller width */
   font-size: 18px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   text-decoration: none;
   transition: transform 0.3s ease;
+  margin-right: 30px; /* Reduce space from the right */
 }
 
 #download-resume-button:hover {
