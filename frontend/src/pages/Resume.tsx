@@ -4,54 +4,9 @@ import './Resume.css';
 import { NavLink } from 'react-router-dom';
 
 const Resume = () => {
-    const [professionalOpen, setProfessionalOpen] = useState(false);
-    const [personalOpen, setPersonalOpen] = useState(false);
-  
-    const handleProfessionalEnter = () => setProfessionalOpen(true);
-    const handleProfessionalLeave = () => setProfessionalOpen(false);
-  
-    const handlePersonalEnter = () => setPersonalOpen(true);
-    const handlePersonalLeave = () => setPersonalOpen(false);
     
   return (
     <div className="resume-container">
-      {/* Header with navigation links */}
-      <header>
-          <a href="#home" className="logo">JKL</a>
-          <nav className="header-nav">
-            <NavLink to="/" className="active">Home</NavLink>
-
-            {/* Professional Dropdown */}
-            <div
-              className="dropdown"
-              onMouseEnter={handleProfessionalEnter}
-              onMouseLeave={handleProfessionalLeave}
-            >
-              <a href="#professional">Professional</a>
-              {professionalOpen && (
-                <div className="dropdown-content">
-                  <NavLink to="/resume">Resume</NavLink>
-                  <NavLink to="/professional-projects">Projects</NavLink>
-                </div>
-              )}
-            </div>
-
-            {/* Personal Dropdown */}
-            <div
-              className="dropdown"
-              onMouseEnter={handlePersonalEnter}
-              onMouseLeave={handlePersonalLeave}
-            >
-              <a href="#personal">Personal</a>
-              {personalOpen && (
-                <div className="dropdown-content">
-                  <NavLink to="/personal-projects">Projects</NavLink>
-                  <NavLink to="/about-me">About Me</NavLink>
-                </div>
-              )}
-            </div>
-          </nav>
-        </header>
 
       {/* Contact Information */}
       <section className="contact-info">
@@ -120,9 +75,10 @@ const Resume = () => {
       <section className="resume-section">
         <h2>ACTIVE PROJECTS</h2>
         <div className="projects">
-          <h3>JenTwo OS</h3>
+          <h3>Caslte Camden</h3>
           <p>Jan 2025 - Present | Gainesville, FL</p>
-          <p>Developing an operating system with innovative features and functionality.</p>
+          <p>Designed a state-driven game menu for the side-scrolling platformer "Castle Camden" using C++ and SFML.
+          </p>
 
           <h3>Markov’s Muse</h3>
           <p>Aug 2024 - Present | Gainesville, FL</p>

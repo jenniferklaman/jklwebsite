@@ -36,7 +36,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 40px; /* Set consistent left margin */
+  padding: 10px 30px; /* Set consistent left margin */
   position: fixed;
   top: 0;
   left: 0;
@@ -79,11 +79,11 @@ header a {
 
 /* Active and Hover State */
 header a.active {
-  background-color: plum;
+  background-color: #ff91a1;
   color: white;
 }
 header a:hover:not(.active) {
-  background-color: plum;
+  background-color: #ff91a1;
   color: white;
 }
 
@@ -124,7 +124,7 @@ header a:hover:not(.active) {
   cursor: pointer;
   text-decoration: none;
   transition: transform 0.3s ease;
-  margin-right: 30px;
+  margin-right: 50px;
 }
 #download-resume-button:hover {
   transform: scale(1.1);
