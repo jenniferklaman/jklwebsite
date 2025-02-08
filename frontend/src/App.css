@@ -1,29 +1,10 @@
-/* Reset some basic styles */
-body {
-  background-color: white;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  font-family: 'Georgia', sans-serif;
-  background-color: #f0f8ff;
-  color: #333;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 100vh;
-  padding-top: 80px; /* Align with the header height */
-}
-
 /* Header Style */
 header {
   background-color: #f1f1f1;
   width: 100%;
   height: 80px;
   display: flex;
-  justify-content: flex-start; /* Ensures space between logo and nav */
+  justify-content: space-between;  /* Distribute space between left and right sides */
   align-items: center;
   padding: 10px 20px;
   position: fixed;
@@ -31,6 +12,12 @@ header {
   left: 0;
   z-index: 1000; /* Ensures header is on top */
   overflow: visible;
+}
+
+/* Left container for logo and nav */
+.header-left {
+  display: flex;
+  align-items: center;
 }
 
 /* Logo */
@@ -101,11 +88,29 @@ header a:hover {
   display: block;
 }
 
-/* Dropdown Item Hover */
 .dropdown-content a:hover {
   background-color: #ddd;
   color: black;
 }
+
+/* Download Resume Button */
+#download-resume-button {
+  background-color: #ff91a1;
+  color: white;
+  padding: 12px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+#download-resume-button:hover {
+  transform: scale(1.1);
+  background-color: #ff6384;
+}
+
 
 /* Main content */
 .main-content {

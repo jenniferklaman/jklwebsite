@@ -12,7 +12,6 @@ const App: React.FC = () => {
 
   const handleProfessionalEnter = () => setProfessionalOpen(true);
   const handleProfessionalLeave = () => setProfessionalOpen(false);
-
   const handlePersonalEnter = () => setPersonalOpen(true);
   const handlePersonalLeave = () => setPersonalOpen(false);
 
@@ -21,54 +20,65 @@ const App: React.FC = () => {
       <div className="App">
         {/* Header with navigation links */}
         <header>
-          <a href="#home" className="logo">JKL</a>
-          <nav className="header-nav">
-            <Link to="/" className="active">Home</Link>
-
-            {/* Professional Dropdown */}
-            <div
-              className="dropdown"
-              onMouseEnter={handleProfessionalEnter}
-              onMouseLeave={handleProfessionalLeave}
-            >
-              <a href="#professional">Professional</a>
-              {professionalOpen && (
-                <div className="dropdown-content">
-                  <Link to="/resume">Resume</Link>
-                  <Link to="/professional-projects">Projects</Link>
-                </div>
-              )}
-            </div>
-
-            {/* Personal Dropdown */}
-            <div
-              className="dropdown"
-              onMouseEnter={handlePersonalEnter}
-              onMouseLeave={handlePersonalLeave}
-            >
-              <a href="#personal">Personal</a>
-              {personalOpen && (
-                <div className="dropdown-content">
-                  <Link to="/personal-projects">Projects</Link>
-                  <Link to="/about-me">About Me</Link>
-                </div>
-              )}
-            </div>
-          </nav>
+          <div className="header-left">
+            <a href="#home" className="logo">JKL</a>
+            <nav className="header-nav">
+              <Link to="/" className="active">Home</Link>
+              {/* Professional Dropdown */}
+              <div
+                className="dropdown"
+                onMouseEnter={handleProfessionalEnter}
+                onMouseLeave={handleProfessionalLeave}
+              >
+                <a href="#professional">Professional</a>
+                {professionalOpen && (
+                  <div className="dropdown-content">
+                    <Link to="/resume">Resume</Link>
+                    <Link to="/professional-projects">Projects</Link>
+                  </div>
+                )}
+              </div>
+              {/* Personal Dropdown */}
+              <div
+                className="dropdown"
+                onMouseEnter={handlePersonalEnter}
+                onMouseLeave={handlePersonalLeave}
+              >
+                <a href="#personal">Personal</a>
+                {personalOpen && (
+                  <div className="dropdown-content">
+                    <Link to="/personal-projects">Projects</Link>
+                    <Link to="/about-me">About Me</Link>
+                  </div>
+                )}
+              </div>
+            </nav>
+          </div>
+          {/* Download Resume Button */}
+          <a
+            href="/path/to/your/resume.pdf"  // Update this path to your actual resume file location
+            id="download-resume-button"
+            download
+          >
+            Download Resume
+          </a>
         </header>
 
         {/* Main content section */}
         <div className="main-content">
           <Routes>
-            <Route path="/" element={
-              <>
-                <h2>Welcome to the React App!</h2>
-                <p>This is a section of the page. You can add more content here.</p>
-                <button>
-                  <i className="fas fa-heart"></i> CLICK ME
-                </button>
-              </>
-            } />
+            <Route
+              path="/"
+              element={
+                <>
+                  <h2>Welcome to the React App!</h2>
+                  <p>This is a section of the page. You can add more content here.</p>
+                  <button>
+                    <i className="fas fa-heart"></i> CLICK ME
+                  </button>
+                </>
+              }
+            />
             <Route path="/resume" element={<Resume />} />
             <Route path="/professional-projects" element={<ProfessionalProjects />} />
             <Route path="/personal-projects" element={<PersonalProjects />} />

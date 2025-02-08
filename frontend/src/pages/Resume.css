@@ -1,24 +1,15 @@
-/* General body settings */
-body {
-    font-family: Georgia, serif;  /* General font */
-    margin: 0;
-    padding: 0;
-    background-color: #f0f8ff;  /* Background color */
-    max-width: 100%;  /* Prevent width issues */
-    overflow-x: hidden; /* Avoid horizontal scroll */
-}
-
 /* Align content to the left side */
 .resume-container {
-    font-family: Georgia, serif;
+    font-family: Georgia;
     line-height: 1.6;
+    margin-left: 20px; /* Align content with the header's left padding */
+    max-width: 900px;  /* Set a max width */
     padding: 20px;
-    max-width: 900px;  /* Max width for the content */
-    margin: 80px 20px 20px 20px; /* Space for header (80px) and consistent left margin */
     text-align: left; /* Ensure text is left-aligned */
+    margin-top: 80px; /* Space for the fixed header */
 }
 
-/* Header remains the same */
+/* Header Style */
 header {
     background-color: #f1f1f1;
     width: 100%;
@@ -32,15 +23,35 @@ header {
     left: 0;
     z-index: 1000;
     overflow: visible;
+    justify-content: space-between;  /* Ensures space between logo and button */
 }
+  
+/* Download Resume Button */
+#download-button {
+    background-color: #ff91a1;
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    text-decoration: none; /* Remove underline */
+}
+
+#download-button:hover {
+    transform: scale(1.1);
+    background-color: #ff6384;
+}
+
 
 /* Contact info section at the top */
 .contact-info {
-    margin-top: 80px; /* Adjust for fixed header */
+    margin-top: 100px; /* Adjust for fixed header */
     margin-bottom: 40px;
     font-family: 'Georgia', serif; /* Apply serif font */
     text-align: left; /* Align text to the left */
-    margin-left: 20px; /* Align left with header */
+    margin-left: 20px; /* Match left margin with other sections */
 }
 
 .contact-info h1 {
