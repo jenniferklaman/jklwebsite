@@ -73,11 +73,13 @@ const App: React.FC = () => {
                 <div className="home-container">
                   {/* About Me Section */}
                   <section className="intro">
-                    <h1>Hi, I'm Jennifer! 👋</h1>
+                    <h1>Jennifer K Laman ;3</h1>
                     <p>
-                      I'm a **linguistics major** with a passion for **AI, computational methods, and web development**. 
-                      I specialize in **geospatial data analysis, natural language processing, and creative coding**. 
-                      When I'm not coding, I'm probably reading about **machine learning, cartography, or historical linguistics**.
+                      I am currently an undergraduate student at the University of Florida studying linguistics, 
+                      computer science, and mathematics. I am passionate about many subjects, including geospatial 
+                      analysis, machine learning, and game development. Outside of school, 
+                      I enjoy reading, writing, painting, wood carving, ceramics, watching movies, 
+                      and playing Magic: The Gathering with my friends. I also have an awesome cat named Stanley Tucci XD
                     </p>
                     <Link to="/about-me" className="btn">📖 Read More</Link>
                   </section>
@@ -91,10 +93,13 @@ const App: React.FC = () => {
 
                   {/* Featured Project */}
                   <section className="featured-project">
-                    <h2>🔥 Featured Project: AI for Linguistics</h2>
+                    <h2>Featured Project: Castle Camden</h2>
                     <p>
-                      I developed an **AI-powered Greek lemmatizer** that helps trace **historical language evolution**. 
-                      This project combines **machine learning with etymology** to reconstruct linguistic roots.
+                    Castle Camden is a side-scrolling platformer with classic pixel-art aesthetics. Set in a mysterious 
+                    fortress filled with secrets, players navigate nine 
+                    levels, battle enemies, and uncover the hidden lore of Camden Castle. This project is dedicated to my roommates (and cat):
+                    Eden, Alyssa, and Ale. If you know them in real life, you would be inspired by them as well. 
+                    Stay tuned for updates on development progress and future releases!
                     </p>
                     <img src="https://source.unsplash.com/800x400/?ai,language" alt="Featured Project" className="project-img" />
                     <Link to="/professional-projects" className="btn">🔍 Explore Project</Link>
@@ -102,13 +107,13 @@ const App: React.FC = () => {
 
                   {/* Contact & Social Links */}
                   <section className="contact">
-                    <h2>📬 Get in Touch</h2>
-                    <p>Connect with me on these platforms:</p>
+                    <h2>Get in Touch</h2>
+                    <p>Connect with me on these platforms!:</p>
                     <div className="social-links">
-                      <a href="https://github.com/jenniferlaman" target="_blank">🐙 GitHub</a>
-                      <a href="https://linkedin.com/in/jenniferlaman" target="_blank">💼 LinkedIn</a>
-                      <a href="mailto:jenniferklaman@gmail.com">📧 Email</a>
-                    </div>
+                    <a href="https://github.com/jenniferklaman" target="_blank" rel="noopener noreferrer">🐙 GitHub</a>
+                    <a href="https://www.linkedin.com/in/jennifer-laman-615843262/" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
+                    <a href="mailto:jenniferklaman@gmail.com">📧 Email</a>
+                  </div>
                   </section>
                 </div>
               }
