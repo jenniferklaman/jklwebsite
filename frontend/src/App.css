@@ -115,7 +115,7 @@ header a:hover:not(.active) {
 
 /* ✅ FIX: Align Content Left & Match Header */
 .main-content {
-  padding-top: 50px;
+  padding-top: 20px;
   width: 100%;
   max-width: 800px;
   margin-left: 40px; /* Align with header */
