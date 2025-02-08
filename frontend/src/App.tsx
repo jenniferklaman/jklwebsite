@@ -56,7 +56,7 @@ const App: React.FC = () => {
           </div>
           {/* Download Resume Button */}
           <a
-            href="/path/to/your/resume.pdf"  // Update this path to your actual resume file location
+            href="/path/to/your/resume.pdf"
             id="download-resume-button"
             download
           >
@@ -70,13 +70,47 @@ const App: React.FC = () => {
             <Route
               path="/"
               element={
-                <>
-                  <h2>Welcome to the React App!</h2>
-                  <p>This is a section of the page. You can add more content here.</p>
-                  <button>
-                    <i className="fas fa-heart"></i> CLICK ME
-                  </button>
-                </>
+                <div className="home-container">
+                  {/* About Me Section */}
+                  <section className="intro">
+                    <h1>Hi, I'm Jennifer! 👋</h1>
+                    <p>
+                      I'm a **linguistics major** with a passion for **AI, computational methods, and web development**. 
+                      I specialize in **geospatial data analysis, natural language processing, and creative coding**. 
+                      When I'm not coding, I'm probably reading about **machine learning, cartography, or historical linguistics**.
+                    </p>
+                    <Link to="/about-me" className="btn">📖 Read More</Link>
+                  </section>
+
+                  {/* Navigation Buttons */}
+                  <section className="quick-links">
+                    <Link to="/resume" className="btn">📄 View My Resume</Link>
+                    <Link to="/professional-projects" className="btn">💼 See My Projects</Link>
+                    <Link to="/personal-projects" className="btn">🎨 Personal Projects</Link>
+                  </section>
+
+                  {/* Featured Project */}
+                  <section className="featured-project">
+                    <h2>🔥 Featured Project: AI for Linguistics</h2>
+                    <p>
+                      I developed an **AI-powered Greek lemmatizer** that helps trace **historical language evolution**. 
+                      This project combines **machine learning with etymology** to reconstruct linguistic roots.
+                    </p>
+                    <img src="https://source.unsplash.com/800x400/?ai,language" alt="Featured Project" className="project-img" />
+                    <Link to="/professional-projects" className="btn">🔍 Explore Project</Link>
+                  </section>
+
+                  {/* Contact & Social Links */}
+                  <section className="contact">
+                    <h2>📬 Get in Touch</h2>
+                    <p>Connect with me on these platforms:</p>
+                    <div className="social-links">
+                      <a href="https://github.com/jenniferlaman" target="_blank">🐙 GitHub</a>
+                      <a href="https://linkedin.com/in/jenniferlaman" target="_blank">💼 LinkedIn</a>
+                      <a href="mailto:jenniferklaman@gmail.com">📧 Email</a>
+                    </div>
+                  </section>
+                </div>
               }
             />
             <Route path="/resume" element={<Resume />} />
