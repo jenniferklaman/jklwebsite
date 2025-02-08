@@ -10,6 +10,8 @@ import ccMenu from './assets/ccMenu.png';
 import BlaisePig from './assets/BlaisePig.jpg';
 import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
+import nyanCat from "./assets/nyancat.gif";
+
 
 const App: React.FC = () => {
 const [professionalOpen, setProfessionalOpen] = useState(false);
@@ -92,7 +94,8 @@ Download Resume
           className="intro-container"
           variants={fadeIn}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
         >
           {/* Text Section */}
           <div className="intro-text">
@@ -119,7 +122,8 @@ Download Resume
         className="explore-box"
         variants={fadeIn}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
       >
         <h2>Explore</h2>
         <p>Check out my latest projects and interests!</p>
@@ -144,7 +148,8 @@ Download Resume
         className="featured-project-box"
         variants={fadeIn}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
       >
         {/* Text Section */}
         <div className="featured-project-text">
@@ -168,7 +173,8 @@ Download Resume
         className="featured-hobby-box"
         variants={fadeIn}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
       >
         {/* Text Section */}
         <div className="featured-hobyy">
@@ -196,14 +202,11 @@ Download Resume
 
       </motion.section>
 
-
       {/* Contact Info Box */}
-      <motion.section
-        className="contact-box"
-        variants={fadeIn}
-        initial="hidden"
-        animate="visible"
-      >
+      <motion.section className="contact-box" variants={fadeIn} initial="hidden"   whileInView="visible" 
+      viewport={{ once: true, amount: 0.2 }}>
+      {/* Links Section */}
+      <div className="links-container">
         <div className="contact">
           <h2>Links!</h2>
           <p>Connect with me on these platforms:</p>
@@ -213,8 +216,28 @@ Download Resume
             <a href="mailto:jenniferklaman@gmail.com">📧 Email</a>
           </div>
         </div>
-      </motion.section>
+
+        {/* Animated Nyan Cat */}
+        <motion.div
+          className="animated-nyancat"
+          animate={{ x: ["25%", "100%"] }}  // Moves across the full width
+          transition={{
+            x: {
+              repeat: Infinity,
+              duration: 6, // Adjust speed
+              ease: "linear" // Keeps a constant speed
+            }
+          }}
+        >
+          <img src={nyanCat} alt="Nyan Cat" className="nyan-cat-img" />
+        </motion.div>
+
+      </div>
+    </motion.section>
+
     </div>
+
+    
   }
 />
 <Route path="/resume" element={<Resume />} />
