@@ -73,13 +73,13 @@ const App: React.FC = () => {
                 <div className="home-container">
                   {/* About Me Section */}
                   <section className="intro">
-                    <h1>Jennifer K Laman ;3</h1>
+                    <h1>Jennifer K Laman</h1>
                     <p>
                       I am currently an undergraduate student at the University of Florida studying linguistics, 
                       computer science, and mathematics. I am passionate about many subjects, including geospatial 
                       analysis, machine learning, and game development. Outside of school, 
-                      I enjoy reading, writing, painting, wood carving, ceramics, watching movies, 
-                      and playing Magic: The Gathering with my friends. I also have an awesome cat named Stanley Tucci XD
+                      I enjoy reading, writing, painting, watching movies, and playing Magic: The Gathering with 
+                      my friends. I also have an awesome cat named Stanley Tucci! 
                     </p>
                     <Link to="/about-me" className="btn">📖 Read More</Link>
                   </section>
