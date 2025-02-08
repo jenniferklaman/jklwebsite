@@ -7,6 +7,7 @@ import PersonalProjects from './pages/PerProjects';
 import AboutMe from './pages/Aboutme';
 import tucciImage from './assets/tucci.png';
 import ccMenu from './assets/ccMenu.png';
+import BlaisePig from './assets/BlaisePig.jpg';
 import { motion } from 'framer-motion';
 
 const App: React.FC = () => {
@@ -126,16 +127,27 @@ const App: React.FC = () => {
 
                     {/* Navigation Buttons Box */}
                     <motion.section
-                      className="quick-links-box"
-                      variants={fadeIn}
-                      initial="hidden"
-                      animate="visible"
-                    >
-                      <h2>Explore</h2>
+                    className="explore-box"
+                    variants={fadeIn}
+                    initial="hidden"
+                    animate="visible"
+                  >
+                    <h2>Explore</h2>
+                    <p>Check out my latest projects and interests!</p>
+
+                    {/* Featured Small Project */}
+                    <div className="mini-project">
+                      <h3>📌 Current Focus</h3>
+                      <p>Explore <strong>Apple API</strong>; I just love apples</p>
+                      <Link to="/personal-projects" className="btn">🎮 See More</Link>
+                    </div>
+
+                    {/* Quick Links */}
+                    <div className="quick-links">
                       <Link to="/resume" className="btn">📄 View My Resume</Link>
-                      <Link to="/professional-projects" className="btn">💼 See My Projects</Link>
                       <Link to="/personal-projects" className="btn">🎨 Personal Projects</Link>
-                    </motion.section>
+                    </div>
+                  </motion.section>
                   </div>
                   
                   {/* Featured Project Box */}
@@ -158,10 +170,43 @@ const App: React.FC = () => {
                       {/* Add the button-styled link */}
                       <Link to="/professional-projects" className="btn">🔍 Explore Project</Link>
                     </div>
-
                     {/* Image Section */}
                     <img src={ccMenu} alt="Featured Project" className="featured-project-img" />
                   </motion.section>
+
+                    {/* And this weeks hobby is... */}
+                    <motion.section
+                    className="featured-hobby-box"
+                    variants={fadeIn}
+                    initial="hidden"
+                    animate="visible"
+                  >
+                    {/* Text Section */}
+                    <div className="featured-hobyy">
+                      <h2>And this week's hobby is...</h2>
+                      <p>
+                        I have a lot of hobbies that I never have enough time for. This week's hobby is ceramics!
+                        I go to a beginning ceramics class with Blaise every Tuesday at the Reitz. The class is mostly graduate
+                        engineering students and also a girl from my high school.
+                        Last week we made quadrupeds. This is Blaise's pig from two weeks ago. I was working on 
+                        a cat last week. 
+                        I'll put a new picture soon don't worry everyone.
+        
+                      </p>
+                      {/* Add the button-styled link */}
+                      <Link to="/personal-projects" className="btn">🔍 Explore Project</Link>
+                    </div>
+
+                    {/* Image Section */}
+                    <img 
+                      src={BlaisePig} 
+                      alt="Blaise's Pig" 
+                      className="featured-hobby-img"
+                      style={{ width: '300px', height: 'auto', maxWidth: '100%' }} 
+                    />
+
+                  </motion.section>
+
 
                   {/* Contact Info Box */}
                   <motion.section
