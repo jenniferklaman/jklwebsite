@@ -158,7 +158,7 @@ Download Resume
             Castle Camden is a side-scrolling platformer with a classic pixel-art aesthetic. Set in a mysterious 
             fortress filled with secrets, players navigate nine 
             levels, battle enemies, and uncover the hidden lore of Camden Castle. This project is dedicated to my roommates (and cat):
-            Eden, Alyssa, and Ale. If you know them, you would be inspired by them as well. 
+            Eden, Alyssa, and Ale. If you knew them, you would be inspired by them as well. 
             Stay tuned for updates on development progress and future releases!
           </p>
           {/* Add the button-styled link */}
@@ -220,7 +220,7 @@ Download Resume
         {/* Animated Nyan Cat */}
         <motion.div
           className="animated-nyancat"
-          animate={{ x: ["25%", "100%"] }}  // Moves across the full width
+          animate={{ x: ["29%", "100%"] }}  // Moves across the full width
           transition={{
             x: {
               repeat: Infinity,
