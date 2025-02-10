@@ -390,7 +390,7 @@ header a:hover:not(.active) {
 
 /* Footer */
 footer {
-  background-color: #ffe8ed;
+  background-color: transparent;
   width: 95%;
   height: 80px;
   display: flex;
