@@ -131,14 +131,14 @@ Download Resume
         {/* Featured Small Project */}
         <div className="mini-project">
           <h3>📌 Current Focus</h3>
-          <p>Explore <strong>Apple API</strong>; I just love apples</p>
+          <p>Explore <strong>Apple API</strong> (I just love apples)</p>
           <Link to="/personal-projects" className="btn">🎮 See More</Link>
         </div>
 
         {/* Quick Links */}
         <div className="quick-links">
           <Link to="/resume" className="btn">📄 View My Resume</Link>
-          <Link to="/personal-projects" className="btn">🎨 Personal Projects</Link>
+          <Link to="/professional-projects" className="btn">👩‍🏫 Professional Projects</Link>
         </div>
       </motion.section>
       </div>
@@ -162,7 +162,7 @@ Download Resume
             Stay tuned for updates on development progress and future releases!
           </p>
           {/* Add the button-styled link */}
-          <Link to="/professional-projects" className="btn">🔍 Explore Project</Link>
+          <Link to="/personal-projects" className="btn">🔍 Explore Project</Link>
         </div>
         {/* Image Section */}
         <img src={ccMenu} alt="Featured Project" className="featured-project-img" />

@@ -99,6 +99,7 @@ header a:hover:not(.active) {
   min-width: 160px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 3000;
+  border-radius: 0px; 
 }
 .dropdown:hover .dropdown-content {
   display: block;
@@ -108,9 +109,11 @@ header a:hover:not(.active) {
   padding: 12px;
   text-decoration: none;
   display: block;
+  border-radius: 0px; 
 }
 .dropdown-content a:hover {
   background-color: #ddd;
+  border-radius: 0px; 
 }
 
 /* Download Resume Button */
