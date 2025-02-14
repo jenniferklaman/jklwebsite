@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom/client'; // Import ReactDOM for React 18+
 import './PerProjects.css';
 import CastleCamden from './pages_assets/ccmenu2.png';
 import SPTrivia from './games/SPTrivia'; // Import TriviaGame
+//help tom please
 
 interface Project {
   name: string;
