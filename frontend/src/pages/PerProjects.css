@@ -1,4 +1,4 @@
-/* profprojects.css */
+/* PerProjects.css */
 
 /* Container styling */
 .personal-projects {
@@ -56,6 +56,23 @@
     color: #666;
   }
   
+  /* Styling for Play Game button */
+  .featured-project-box button {
+    margin-left: 15px; /* Add margin to move the button a little to the right */
+  }
+
+  .btn:hover {
+    background-color: #ff6f6f; /* Darker pink on hover */
+  }
+
+    /* Focus state - removes the default focus outline */
+  .btn:focus {
+    outline: none; /* Remove focus outline */
+    box-shadow: none; /* Ensure no box-shadow on focus */
+  }
+
+
+
   /* Loading animation keyframes */
   @keyframes loadingPulse {
     0% {

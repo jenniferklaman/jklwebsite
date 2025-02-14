@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import ReactDOM from 'react-dom/client'; // Import ReactDOM for React 18+
+
 import './PerProjects.css';
-import CastleCamden from './pages_assets/ccmenu2.png'
+import CastleCamden from './pages_assets/ccmenu2.png';
+import SPTrivia from './games/SPTrivia'; // Import TriviaGame
 
 interface Project {
   name: string;
   description: string;
   link: string;
   image?: string;
+  gameLink?: string;
 }
 
 // project tiles
@@ -21,6 +25,7 @@ const projects: Project[] = [
     I bit off more than I can chew...again...`,
     link: 'https://github.com/jenniferklaman/CastleCamden',
     image: CastleCamden,
+    gameLink: '/castle-camden-game',  // Add a link to the game
   },
   {
     name: 'Apple API',
@@ -34,6 +39,7 @@ const projects: Project[] = [
     Another personal project inspired by my roommates lol.`,
     link: 'https://github.com/jenniferklaman/ShowerPartyTrivia',
     image: 'https://via.placeholder.com/300x200',
+    gameLink: '/shower-party-trivia',  // Add a link to the trivia game
   },
   // Add more projects as needed
 ];
@@ -47,14 +53,51 @@ const fadeIn = {
 // A small helper function to detect external links
 const isExternalLink = (url: string) => url.startsWith('http');
 
+// Function to open trivia game in a new window
+const openTriviaGame = () => {
+  const triviaWindow = window.open(
+    '',
+    '_blank',
+    'width=600,height=600,scrollbars=yes,resizable=yes'
+  );
+
+  if (triviaWindow) {
+     // Write the trivia game content into the new window
+     triviaWindow.document.write('<html><head>');
+     triviaWindow.document.write('<title>Trivia Game</title>');
+ 
+     // Link to the SPTrivia.css
+     triviaWindow.document.write('<link rel="stylesheet" href="./games/SPtrivia.css">'); 
+ 
+     triviaWindow.document.write('</head><body>');
+     triviaWindow.document.write('<div id="root"></div>'); // This is where the game will mount
+     triviaWindow.document.write('</body></html>');
+     triviaWindow.document.close(); // Ensure the document is fully loaded before trying to render the game
+ 
+
+    // Re-render the game into the new window
+    const rootElement = triviaWindow.document.getElementById('root');
+    if (rootElement) {
+      const triviaRoot = ReactDOM.createRoot(rootElement); // Correct for React 18
+      triviaRoot.render(<SPTrivia />);
+    }
+  }
+};
+
 const PersonalProjects: React.FC = () => {
   const [loading, setLoading] = useState(true);
+  const [activeGame, setActiveGame] = useState<string | null>(null); // State to track active game
 
   // Simulate a loading delay to trigger CSS animations
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 500);
     return () => clearTimeout(timer);
   }, []);
+
+  // Handle game toggle
+  const handleGameToggle = (gameName: string) => {
+    setActiveGame((prev) => (prev === gameName ? null : gameName)); // Toggle the game visibility
+  };
 
   return (
     <div className="personal-projects">
@@ -88,21 +131,25 @@ const PersonalProjects: React.FC = () => {
                   🔍 Explore Project
                 </Link>
               )}
+
+              {/* Button to toggle game visibility */}
+              {project.gameLink && (
+                <button onClick={openTriviaGame} className="btn">
+                  🎮 Play Game
+                </button>
+              )}
             </div>
 
-            {project.image && (
-              <img
-                src={project.image}
-                alt={project.name}
-                className="featured-project-img"
-              />
-            )}
+            {project.image && <img src={project.image} alt={project.name} className="featured-project-img" />}
           </motion.section>
         ))}
       </div>
+
+      {/* Conditionally render the active game */}
+      {activeGame === 'Shower Party Trivia' && <SPTrivia />} {/* Render the trivia game if it's active */}
+      {activeGame === 'Castle Camden' && <SPTrivia />} {/* Render Castle Camden game if it's active */}
     </div>
   );
 };
-
 
 export default PersonalProjects;

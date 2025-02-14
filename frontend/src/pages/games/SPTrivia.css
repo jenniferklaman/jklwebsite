@@ -1,0 +1,136 @@
+/* SPTrivia.css */
+
+/* General styling for the trivia game */
+.trivia-game {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #f0f8ff;  /* Light pastel blue */
+    padding: 30px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  /* Simple fade-in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Styling for the question container */
+  .question-container {
+    margin-bottom: 30px;
+  }
+  
+  .question-container p {
+    font-size: 26px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Styling for the options buttons */
+  .options button {
+    background-color: #ff9b9b; /* Soft pink */
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    margin: 10px;
+    font-size: 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .options button:hover {
+    background-color: #ff6f6f; /* Darker pink on hover */
+  }
+  
+  .options button:focus {
+    outline: none; /* Remove outline when button is clicked */
+  }
+  
+  /* Game over screen styling */
+  .game-over {
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .game-over p {
+    font-size: 32px;
+    color: #ff6347; /* Tomato color */
+    margin-top: 20px;
+  }
+  
+  /* "Restart" button styling */
+  .game-over button {
+    background-color: #ff7f50; /* Coral color */
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 20px;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .game-over button:hover {
+    background-color: #e06c4d; /* Darker coral */
+  }
+  
+  .game-over button:focus {
+    outline: none;
+  }
+  
+  /* Main menu styling */
+  .menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #e0f7fa; /* Light turquoise background */
+    background-image: './page_assets/menuwizard.gif'; /* Path to the GIF */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .menu-header {
+    font-size: 48px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #ff69b4; /* Hot pink color */
+    margin-bottom: 30px;
+  }
+  
+  .menu-button {
+    background-color: #ff9b9b; /* Soft pink */
+    color: white;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 22px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .menu-button:hover {
+    background-color: #ff6f6f; /* Darker pink on hover */
+  }
+  
+  .menu-button:focus {
+    outline: none; /* Remove outline when button is clicked */
+  }
+  
