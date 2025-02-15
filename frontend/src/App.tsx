@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom';
 import Resume from './pages/Resume';
 import ProfessionalProjects from './pages/ProfProjects';
 import PersonalProjects from './pages/PerProjects';
@@ -11,6 +11,7 @@ import BlaisePig from './assets/BlaisePig.jpg';
 import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 import nyanCat from "./assets/nyancat.gif";
+import SPTrivia from './pages/SPTrivia';
 
 
 const App: React.FC = () => {
@@ -22,10 +23,22 @@ const handleProfessionalLeave = () => setProfessionalOpen(false);
 const handlePersonalEnter = () => setPersonalOpen(true);
 const handlePersonalLeave = () => setPersonalOpen(false);
 
-const dropdownVariants = {
-hidden: { opacity: 0, y: -10 },
-visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
-};
+// const dropdownVariants = {
+// hidden: { opacity: 0, y: -10 },
+// visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
+// };
+
+// this doesn't work well lol...
+const ScrollToTop: React.FC = () => {
+  const location = useLocation();
+  
+  useEffect(() => {
+    // Scroll to the top of the page on route change
+    window.scrollTo(0, 0);
+  }, [location]); // Runs when the location changes (i.e., route changes)
+
+  return null;
+}; 
 
 const fadeIn = {
 hidden: { opacity: 0, y: 30 },
@@ -244,6 +257,9 @@ Download Resume
 <Route path="/professional-projects" element={<ProfessionalProjects />} />
 <Route path="/personal-projects" element={<PersonalProjects />} />
 <Route path="/about-me" element={<AboutMe />} />
+{/* Add routes for games */}
+<Route path="/shower-party-trivia" element={<SPTrivia />} />
+{/* Add other game routes here */}
 </Routes>
 </div>
 

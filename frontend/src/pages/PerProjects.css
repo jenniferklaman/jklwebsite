@@ -56,10 +56,21 @@
   color: #666;
 }
 
+/* Adjusting gif size in the personal projects section */
+.project-tile img {
+  max-width: 150px; /* Controls the width of the gif */
+  height: auto; /* Keeps the aspect ratio intact */
+}
+
 /* Styling for Play Game button */
 .featured-project-box button {
-  margin-left: 15px; /* Add margin to move the button a little to the right */
+  margin-right: 15px; /* Add margin to move the button a little to the right */
   outline: 0;
+  cursor: pointer;
+}
+
+.btn {
+  margin-right: 10px;  /* Add more space between the buttons */
 }
 
 .btn:hover {

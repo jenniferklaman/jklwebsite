@@ -2,135 +2,265 @@
 
 /* General styling for the trivia game */
 .trivia-game {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    background-color: #f0f8ff;  /* Light pastel blue */
-    padding: 30px;
-    border-radius: 12px;
-    width: 80%;
-    max-width: 600px;
-    margin: 20px auto;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    animation: fadeIn 0.6s ease-out;
+  font-family: 'Poppins';
+  background-color: #ffffff; /* White background for a clean look */
+  padding: 20px;
+  border-radius: 12px;
+  width: 70%;  /* Adjust width */
+  max-width: 600px;
+  margin: 20px auto;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeIn 0.6s ease-out;
+  margin-bottom: 0px; /* To avoid content being cut off */
+}
+
+/* Simple fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  /* Simple fade-in animation */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Styling for the question container */
-  .question-container {
-    margin-bottom: 30px;
-  }
-  
-  .question-container p {
-    font-size: 26px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  /* Styling for the options buttons */
-  .options button {
-    background-color: #ff9b9b; /* Soft pink */
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    margin: 10px;
-    font-size: 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .options button:hover {
-    background-color: #ff6f6f; /* Darker pink on hover */
-  }
-  
-  .options button:focus {
-    outline: none; /* Remove outline when button is clicked */
-  }
-  
-  /* Game over screen styling */
-  .game-over {
-    font-size: 30px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .game-over p {
-    font-size: 32px;
-    color: #ff6347; /* Tomato color */
-    margin-top: 20px;
-  }
-  
-  /* "Restart" button styling */
-  .game-over button {
-    background-color: #ff7f50; /* Coral color */
-    color: white;
-    padding: 12px 30px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 20px;
-    border: none;
-    transition: background-color 0.3s ease;
-  }
-  
-  .game-over button:hover {
-    background-color: #e06c4d; /* Darker coral */
-  }
-  
-  .game-over button:focus {
-    outline: none;
-  }
-  
-  /* Main menu styling */
-  .menu-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #e0f7fa; /* Light turquoise background */
-    background-image: './page_assets/menuwizard.gif'; /* Path to the GIF */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .menu-header {
-    font-size: 48px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    color: #ff69b4; /* Hot pink color */
-    margin-bottom: 30px;
-  }
-  
-  .menu-button {
-    background-color: #ff9b9b; /* Soft pink */
-    color: white;
-    padding: 15px 30px;
-    border-radius: 25px;
-    font-size: 22px;
-    margin: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .menu-button:hover {
-    background-color: #ff6f6f; /* Darker pink on hover */
-  }
-  
-  .menu-button:focus {
-    outline: none; /* Remove outline when button is clicked */
-  }
-  
+}
+
+/* Styling for the welcome screen */
+.welcome-screen {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 400px; /* Adjusted height to fit content */
+  background-color: #f0f0f0; /* Soft gray background */
+  text-align: center;
+  padding: 20px;
+}
+
+.welcome-screen h1 {
+  font-size: 30px;
+  font-family: 'Poppins';
+  color: #333; /* Dark text for visibility */
+  margin-bottom: 30px;
+  text-align: center;
+  margin-right: 20px; /* Spacing for the title */
+}
+
+.welcome-screen .menu-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffffff; /* White background for menu */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-screen .menu-container button {
+  background-color: #B3CEE5; /* Uniform blue */
+  color: black;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-size: 22px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.welcome-screen .menu-container button:hover {
+  background-color: #8cb9e1; /* Slightly darker blue on hover */
+}
+
+.welcome-screen .menu-container button:focus {
+  outline: none; /* Remove outline when button is clicked */
+}
+
+.welcome-screen .menu-container button:last-child {
+  margin-bottom: 0; /* No extra margin below exit button */
+}
+
+/* Positioning the gif to the left of the menu */
+.welcome-screen .menu-container {
+  margin-left: 20px;
+}
+
+.welcome-screen .menu-container .button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-screen .gif-container {
+  background-image: url('./pages_assets/menuwizard.gif'); /* Path to the GIF */
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 150px;
+  margin-right: 20px;
+}
+
+/* Category selection screen */
+.category-selection {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  padding: 30px;
+}
+
+.category-selection button {
+  background-color: #B3CEE5; /* Uniform blue */
+  color: white;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-size: 22px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.category-selection button:hover {
+  background-color: #8cb9e1; /* Slightly darker blue */
+}
+
+.category-selection button:focus {
+  outline: none;
+}
+
+/* Difficulty selection screen styling */
+.difficulty-selection {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  padding: 30px;
+  display: flex;           /* Align buttons vertically */
+  flex-direction: column;  /* Stack the buttons vertically */
+  align-items: center;     /* Center the buttons horizontally */
+  justify-content: center; /* Center the content vertically */
+  height: 380px;
+}
+
+.difficulty-selection button {
+  background-color: #B3CEE5; /* Uniform blue */
+  color: black;
+  padding: 15px 0;  /* Vertical padding */
+  border-radius: 25px;
+  font-size: 22px;
+  width: 70%;  /* Set consistent width for all buttons */
+  max-width: 400px;  /* Optionally, limit maximum width */
+  margin: 10px 0;   /* Space between buttons */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.difficulty-selection button:hover {
+  background-color: #8cb9e1; /* Slightly darker blue */
+}
+
+.difficulty-selection button:focus {
+  outline: none;
+}
+
+/* Styling for the question container */
+.question-container {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  padding: 30px;
+  display: flex;           /* Align buttons vertically */
+  flex-direction: column;  /* Stack the buttons vertically */
+  align-items: center;     /* Center the buttons horizontally */
+  justify-content: center; /* Center the content vertically */
+  height: 380px;
+}
+
+.question-container p {
+  font-size: 26px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  padding: 30px;
+  display: flex;           /* Align buttons vertically */
+  flex-direction: column;  /* Stack the buttons vertically */
+  align-items: center;     /* Center the buttons horizontally */
+  justify-content: center; /* Center the content vertically */
+}
+
+/* Styling for the options buttons */
+.options button {
+  background-color: #B3CEE5; /* Uniform blue */
+  color: black;
+  padding: 15px 0;  /* Vertical padding */
+  border-radius: 25px;
+  font-size: 22px;
+  width: 70%;  /* Set consistent width for all buttons */
+  max-width: 400px;  /* Optionally, limit maximum width */
+  margin: 10px 0;   /* Space between buttons */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.options button:hover {
+  background-color: #8cb9e1; /* Slightly darker blue */
+}
+
+.options button:focus {
+  outline: none;
+}
+
+/* Game over screen styling */
+.game-over {
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+  height: 400px; /* Adjusted height to fit content */
+}
+
+.game-over p {
+  font-size: 32px;
+  color: black; /* Tomato color for score */
+  margin-top: 20px;
+}
+
+/* "Restart" button styling */
+.game-over button {
+  background-color: #B3CEE5; /* Uniform blue */
+  color: black;
+  padding: 15px 0;  /* Vertical padding */
+  border-radius: 25px;
+  font-size: 22px;
+  width: 70%;  /* Set consistent width for all buttons */
+  max-width: 400px;  /* Optionally, limit maximum width */
+  margin: 15px 0;   /* Space between buttons */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.game-over button:hover {
+  background-color: #8cb9e1; /* Slightly darker blue */
+}
+
+.game-over button:focus {
+  outline: none;
+}
+
+/* Exit button styling (used for exiting the game or going back) */
+.game-over .exit-button {
+  background-color: #B3CEE5; /* Light blue */
+  color: black;
+  padding: 12px 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 20px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.game-over .exit-button:hover {
+  background-color: #8cb9e1; /* Slightly darker blue */
+}
+
+.game-over .exit-button:focus {
+  outline: none;
+}

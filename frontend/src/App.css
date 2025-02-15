@@ -7,7 +7,7 @@ body {
   padding-top: 80px; /* Push content down below header */
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 /* Custom Scrollbar */
@@ -392,10 +392,6 @@ header a:hover:not(.active) {
 }
 
 
-
-
-
-
 .social-links {
   display: flex;
   justify-content: center;
@@ -415,7 +411,6 @@ header a:hover:not(.active) {
 }
 
 
-
 /* Footer */
 footer {
   background-color: transparent;
@@ -425,7 +420,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 10px 30px; /* Matches header padding */
-  position: relative;
+  position: relative; 
   bottom: 0;
   left: 0;
   z-index: 1000;
