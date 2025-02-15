@@ -177,7 +177,7 @@ Download Resume
         viewport={{ once: true, amount: 0.2 }}
       >
         {/* Text Section */}
-        <div className="featured-hobyy">
+        <div className="featured-hobby">
           <h2>And this week's hobby is...</h2>
           <p>
             I have a lot of hobbies that I never have enough time for. This week's hobby is ceramics!

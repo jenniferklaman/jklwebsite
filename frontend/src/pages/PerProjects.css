@@ -2,92 +2,90 @@
 
 /* Container styling */
 .personal-projects {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.personal-projects h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 2rem;
+  color: #333;
+  font-size: 46px;
+}
+
+/* Tiles wrapper as a flex container */
+.tiles-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Individual project tile styling */
+.project-tile {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  width: 300px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 1;
+}
+
+.project-tile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Link styles for project titles */
+.project-tile a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.project-tile p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Styling for Play Game button */
+.featured-project-box button {
+  margin-left: 15px; /* Add margin to move the button a little to the right */
+  outline: 0;
+}
+
+.btn:hover {
+  background-color: #ff6f6f; /* Darker pink on hover */
+}
+
+  /* Focus state - removes the default focus outline */
+.btn:focus {
+  outline: none; /* Remove focus outline */
+  box-shadow: none; /* Ensure no box-shadow on focus */
+}
+
+/* Loading animation keyframes */
+@keyframes loadingPulse {
+  0% {
+    opacity: 0.6;
   }
-  
-  .personal-projects h1 {
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 2rem;
-    color: #333;
-    font-size: 46px;
-  }
-  
-  /* Tiles wrapper as a flex container */
-  .tiles-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  /* Individual project tile styling */
-  .project-tile {
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    width: 300px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  50% {
     opacity: 1;
   }
-  
-  .project-tile:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  100% {
+    opacity: 0.6;
   }
-  
-  /* Link styles for project titles */
-  .project-tile a {
-    color: #333;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .project-tile p {
-    font-size: 1rem;
-    color: #666;
-  }
-  
-  /* Styling for Play Game button */
-  .featured-project-box button {
-    margin-left: 15px; /* Add margin to move the button a little to the right */
-  }
+}
 
-  .btn:hover {
-    background-color: #ff6f6f; /* Darker pink on hover */
-  }
-
-    /* Focus state - removes the default focus outline */
-  .btn:focus {
-    outline: none; /* Remove focus outline */
-    box-shadow: none; /* Ensure no box-shadow on focus */
-  }
-
-
-
-  /* Loading animation keyframes */
-  @keyframes loadingPulse {
-    0% {
-      opacity: 0.6;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0.6;
-    }
-  }
-  
-  /* Apply loading animation while the component is in its loading state */
-  .loading-animation {
-    animation: loadingPulse 1.5s infinite ease-in-out;
-  }
-  
+/* Apply loading animation while the component is in its loading state */
+.loading-animation {
+  animation: loadingPulse 1.5s infinite ease-in-out;
+}

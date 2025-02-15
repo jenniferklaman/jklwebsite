@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom/client'; // Import ReactDOM for React 18+
 
 import './PerProjects.css';
 import CastleCamden from './pages_assets/ccmenu2.png';
-import SPTrivia from './games/SPTrivia'; // Import TriviaGame
+import SPTrivia from './SPTrivia'; // Import TriviaGame
 //help tom please
 
 interface Project {
@@ -68,7 +68,7 @@ const openTriviaGame = () => {
      triviaWindow.document.write('<title>Trivia Game</title>');
  
      // Link to the SPTrivia.css
-     triviaWindow.document.write('<link rel="stylesheet" href="./games/SPtrivia.css">'); 
+     triviaWindow.document.write('<link rel="stylesheet" href="./SPTrivia.css">'); 
  
      triviaWindow.document.write('</head><body>');
      triviaWindow.document.write('<div id="root"></div>'); // This is where the game will mount
