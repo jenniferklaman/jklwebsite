@@ -1,8 +1,16 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import "./Logo.css"; // normal CSS file
 
-export default function CatLogo() {
-  const blinkRef = useRef<null | NodeJS.Timeout>(null);
+// 1. Define a prop type that extends React.SVGProps<SVGSVGElement>
+interface CatLogoProps extends React.SVGProps<SVGSVGElement> {
+  // You can add more custom props here if needed
+}
+
+export default function CatLogo({
+  className,
+  ...rest
+}: CatLogoProps) {
+  const blinkRef = useRef<null | ReturnType<typeof setTimeout>>(null);
   const [isBlinking, setIsBlinking] = useState(false);
 
   const [positions, setPositions] = useState({
@@ -11,13 +19,11 @@ export default function CatLogo() {
     rightEye: { x: 83, y: 88 },
     leftEar: { x: 60 },
     rightEar: { x: 90 },
-    leftWhiskers: { x: 45, y: 100 },  // Move relative to head
-    rightWhiskers: { x: 105, y: 100 }, // Move relative to head
+    leftWhiskers: { x: 45, y: 100 },
+    rightWhiskers: { x: 105, y: 100 },
   });
 
-  // ----------------------------
   // MOUSE / TOUCH MOVE LOGIC
-  // ----------------------------
   const handleMove = useCallback((clientX: number, clientY: number) => {
     const svgElement = document.getElementById("brand");
     if (!svgElement) return;
@@ -46,7 +52,7 @@ export default function CatLogo() {
     const earMoveFactor = 0.5;
     const earMoveX = headMoveX * earMoveFactor;
 
-    // WHISKERS should move **together** with the head
+    // WHISKERS should move with the head
     const whiskerMoveFactor = 0.7;
     const whiskerMoveX = headMoveX * whiskerMoveFactor;
     const whiskerMoveY = headMoveY * whiskerMoveFactor;
@@ -105,9 +111,7 @@ export default function CatLogo() {
     };
   }, [handleMouseMove, handleTouchMove]);
 
-  // ----------------------------
   // BLINK LOGIC
-  // ----------------------------
   useEffect(() => {
     const scheduleBlink = () => {
       const nextBlink = Math.random() * 3000 + 2000;
@@ -126,15 +130,16 @@ export default function CatLogo() {
     };
   }, []);
 
-  // ----------------------------
   // RENDER
-  // ----------------------------
   return (
     <svg
       id="brand"
+      // 2. Pass className and any other SVG props via {...rest}
+      className={className}
       width="64"
       height="64"
       viewBox="0 0 150 150"
+      {...rest}
     >
       <defs>
         <clipPath id="backgroundClip">
@@ -172,22 +177,82 @@ export default function CatLogo() {
           className="cat-head"
         />
 
-        {/* WHISKERS MOVE WITH THE HEAD */}
+        {/* WHISKERS */}
         <g className="cat-whiskers">
           {/* Left Whiskers */}
-          <line x1={positions.leftWhiskers.x} y1={positions.leftWhiskers.y - 4} x2={positions.leftWhiskers.x - 20} y2={positions.leftWhiskers.y - 7} stroke="black" strokeWidth="2" strokeLinecap="round" />
-          <line x1={positions.leftWhiskers.x} y1={positions.leftWhiskers.y} x2={positions.leftWhiskers.x - 20} y2={positions.leftWhiskers.y} stroke="black" strokeWidth="2" strokeLinecap="round" />
-          <line x1={positions.leftWhiskers.x} y1={positions.leftWhiskers.y + 4} x2={positions.leftWhiskers.x - 20} y2={positions.leftWhiskers.y + 7} stroke="black" strokeWidth="2" strokeLinecap="round" />
+          <line
+            x1={positions.leftWhiskers.x}
+            y1={positions.leftWhiskers.y - 4}
+            x2={positions.leftWhiskers.x - 20}
+            y2={positions.leftWhiskers.y - 7}
+            stroke="black"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <line
+            x1={positions.leftWhiskers.x}
+            y1={positions.leftWhiskers.y}
+            x2={positions.leftWhiskers.x - 20}
+            y2={positions.leftWhiskers.y}
+            stroke="black"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <line
+            x1={positions.leftWhiskers.x}
+            y1={positions.leftWhiskers.y + 4}
+            x2={positions.leftWhiskers.x - 20}
+            y2={positions.leftWhiskers.y + 7}
+            stroke="black"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
 
           {/* Right Whiskers */}
-          <line x1={positions.rightWhiskers.x} y1={positions.rightWhiskers.y - 4} x2={positions.rightWhiskers.x + 20} y2={positions.rightWhiskers.y - 7} stroke="black" strokeWidth="2" strokeLinecap="round" />
-          <line x1={positions.rightWhiskers.x} y1={positions.rightWhiskers.y} x2={positions.rightWhiskers.x + 20} y2={positions.rightWhiskers.y} stroke="black" strokeWidth="2" strokeLinecap="round" />
-          <line x1={positions.rightWhiskers.x} y1={positions.rightWhiskers.y + 4} x2={positions.rightWhiskers.x + 20} y2={positions.rightWhiskers.y + 7} stroke="black" strokeWidth="2" strokeLinecap="round" />
+          <line
+            x1={positions.rightWhiskers.x}
+            y1={positions.rightWhiskers.y - 4}
+            x2={positions.rightWhiskers.x + 20}
+            y2={positions.rightWhiskers.y - 7}
+            stroke="black"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <line
+            x1={positions.rightWhiskers.x}
+            y1={positions.rightWhiskers.y}
+            x2={positions.rightWhiskers.x + 20}
+            y2={positions.rightWhiskers.y}
+            stroke="black"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <line
+            x1={positions.rightWhiskers.x}
+            y1={positions.rightWhiskers.y + 4}
+            x2={positions.rightWhiskers.x + 20}
+            y2={positions.rightWhiskers.y + 7}
+            stroke="black"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
         </g>
 
         {/* EYES */}
-        <ellipse rx="5" cx={positions.leftEye.x} cy={positions.leftEye.y} ry={isBlinking ? "0" : "10"} className="cat-eye" />
-        <ellipse rx="5" cx={positions.rightEye.x} cy={positions.rightEye.y} ry={isBlinking ? "0" : "10"} className="cat-eye" />
+        <ellipse
+          rx="5"
+          cx={positions.leftEye.x}
+          cy={positions.leftEye.y}
+          ry={isBlinking ? "0" : "10"}
+          className="cat-eye"
+        />
+        <ellipse
+          rx="5"
+          cx={positions.rightEye.x}
+          cy={positions.rightEye.y}
+          ry={isBlinking ? "0" : "10"}
+          className="cat-eye"
+        />
       </g>
     </svg>
   );

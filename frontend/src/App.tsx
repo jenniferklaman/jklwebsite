@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet'; // Import Helmet to manage head tags
 import './App.css'; // Make sure this is imported
 import {
   BrowserRouter as Router,
@@ -303,12 +304,16 @@ const App: React.FC = () => {
 
   return (
     <Router>
+      <Helmet>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Helmet>
       <ScrollToTop />
       <div className="App">
         {isLoading ? (
           <div className="loading-screen">
-            <div className="loading-bar-container">
-              <div className="progress-bar"></div>
+            <div className="loading-logo-container">
+              {/* Animated CatLogo */}
+              <CatLogo className="loading-logo" />
             </div>
             <p>Loading...</p>
           </div>
@@ -338,12 +343,9 @@ const App: React.FC = () => {
               </div>
 
               <div className="header-right">
-                {/* Theme Toggle Button (Left) */}
                 <button className="theme-toggle" onClick={toggleTheme}>
                   <FontAwesomeIcon icon={theme === "light" ? faSun : faMoon} />
                 </button>
-
-                {/* Resume Download Button (Right) */}
                 <a
                   href="frontend/src/pages/pages_assets/Resume.pdf"
                   id="download-resume-button"
