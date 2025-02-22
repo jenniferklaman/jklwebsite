@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "module": "commonjs",
+    "target": "esnext",              // Allows modern JS features (like import())
+    "module": "CommonJS",            // Supports both CommonJS & ESM
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -10,12 +10,12 @@
     "moduleResolution": "node",
     "allowJs": true,
     "noEmit": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
+    "resolveJsonModule": true,       // Allows importing JSON files
     "types": [
       "node",              /* Include types for Node.js */
       "react",             /* Include types for React */
-      "react-dom",         /* Include types for React DOM */
-      // "materialize-css"    /* Include types for Materialize CSS */
+      "react-dom"          /* Include types for React DOM */
     ]
   },
   "include": [
