@@ -3,26 +3,26 @@
   <head>
     <meta charset="utf-8" />
     
-    <!-- Corrected Materialize CSS Path -->
-    <link rel="stylesheet" href="/JKLWebsite/materialize/css/materialize.min.css" />
+    <!-- ✅ Use Materialize from a CDN to avoid missing file issues -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
     
-    <!-- Corrected Favicon and Manifest Paths -->
-    <link rel="icon" href="/JKLWebsite/favicon.ico" />
+    <!-- ✅ Use %PUBLIC_URL% to ensure Webpack sets correct paths -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="Web site created using create-react-app" />
-    <link rel="apple-touch-icon" href="/JKLWebsite/logo192.png" />
-    <link rel="manifest" href="/JKLWebsite/manifest.json" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     
     <title>JKL</title>
   
-    <!-- Font Awesome for icons -->
+    <!-- ✅ Font Awesome for icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
   
-    <!-- Google Fonts for typography -->
+    <!-- ✅ Google Fonts for typography -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
       rel="stylesheet"
@@ -33,7 +33,7 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     
-    <!-- Corrected Materialize JS Path -->
-    <script src="/JKLWebsite/materialize/js/materialize.min.js"></script>
+    <!-- ✅ Use Materialize JS from a CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
 </html>
