@@ -1,0 +1,19 @@
+/* catlogo.css */
+
+/* Background circle */
+.cat-bg {
+    fill: #333; /* or any color you want */
+  }
+  
+  /* Ears and head */
+  .cat-ear,
+  .cat-head {
+    fill: #fff; /* White or any color you want */
+  }
+  
+  /* Eyes */
+  .cat-eye {
+    fill: #000; /* Black eyes */
+    transition: ry 0.15s ease-in-out; /* Smooth blinking */
+  }
+  

@@ -1,76 +1,118 @@
-/* profprojects.css */
-
-/* Container styling */
+/* General styling for the Professional Projects page */
 .professional-projects {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.professional-projects h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 46px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Wrapper for project tiles */
+.tiles-wrapper {
+  display: flex;
+  flex-direction: column;  /* Stack projects */
+  gap: 15px;               /* Space between projects */
+  width: 100%;
+  max-width: 800px;        /* Limit width for readability */
+  margin: 0 auto;          /* Center the container */
+  align-items: center;      /* Ensures all projects are centered */
+}
+
+/* Project box styling */
+.featured-project-box {
+  background: #1e1e1e;
+  border: 1px solid #444;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;        /* Increased max-width for readability */
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 1;
+  color: #ffffff;
+}
+
+.featured-project-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+}
+
+/* Styling for project titles */
+.featured-project-box h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+/* Project description */
+.featured-project-box p {
+  font-size: 16px;
+  color: #bbbbbb;
+  line-height: 1.6;
+}
+
+/* Explore Project Button */
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: black; /* Fixed invalid color */
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: black;
+  transform: scale(1.05);
+}
+
+/* Project Image */
+.featured-project-img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin-top: 15px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Loading animation */
+@keyframes loadingPulse {
+  0% {
+    opacity: 0.6;
   }
-  
-  .professional-projects h1 {
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 2rem;
-    color: #333;
-    font-size: 46px;
-  }
-  
-  /* Tiles wrapper as a flex container */
-  .tiles-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  /* Individual project tile styling */
-  .project-tile {
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    width: 300px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  50% {
     opacity: 1;
   }
-  
-  .project-tile:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  100% {
+    opacity: 0.6;
   }
-  
-  /* Link styles for project titles */
-  .project-tile a {
-    color: #333;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 10px;
+}
+
+/* Apply loading animation */
+.loading-animation {
+  animation: loadingPulse 1.5s infinite ease-in-out;
+}
+
+/* Make projects stack on smaller screens */
+@media (max-width: 768px) {
+  .tiles-wrapper {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  .project-tile p {
-    font-size: 1rem;
-    color: #666;
+
+  .featured-project-box {
+    width: 90%;
+    max-width: 400px;
   }
-  
-  /* Loading animation keyframes */
-  @keyframes loadingPulse {
-    0% {
-      opacity: 0.6;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0.6;
-    }
-  }
-  
-  /* Apply loading animation while the component is in its loading state */
-  .loading-animation {
-    animation: loadingPulse 1.5s infinite ease-in-out;
-  }
-  
+}

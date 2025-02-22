@@ -6,7 +6,7 @@
     border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Matches other sections */
     max-width: 1000px;
-    margin: 50px auto; /* Centers the whole resume */
+    margin: -20px auto; /* Centers the whole resume */
     text-align: left;
 }
 
@@ -37,7 +37,7 @@
 .contact-info p {
     margin-top: 10px;
     font-size: 1.2em;
-    color: #555;
+    color: #ccc;
 }
 
 .contact-info span {

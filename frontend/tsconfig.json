@@ -8,8 +8,8 @@
     "skipLibCheck": true,
     "jsx": "react-jsx",
     "moduleResolution": "node",
-    "allowJs": false,
-    "noEmit": false,
+    "allowJs": true,
+    "noEmit": true,
     "isolatedModules": true,
     "types": [
       "node",              /* Include types for Node.js */
