@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/JKLWebsite/static/css/main.3a0437d4.css",
+    "main.js": "/JKLWebsite/static/js/main.c4826cfd.js",
+    "static/media/ccmenu2.png": "/JKLWebsite/static/media/ccmenu2.bfd9bce08c84e37817fb.png",
+    "static/media/Resume.pdf": "/JKLWebsite/static/media/Resume.fed2adc7beba75bd706a.pdf",
+    "static/media/MarkovsMuse.png": "/JKLWebsite/static/media/MarkovsMuse.413fe92cdcc00a576028.png",
+    "static/media/menuwizard.gif": "/JKLWebsite/static/media/menuwizard.b2f6b2fe827516cdfca6.gif",
+    "index.html": "/JKLWebsite/index.html",
+    "main.3a0437d4.css.map": "/JKLWebsite/static/css/main.3a0437d4.css.map",
+    "main.c4826cfd.js.map": "/JKLWebsite/static/js/main.c4826cfd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3a0437d4.css",
+    "static/js/main.c4826cfd.js"
+  ]
+}
