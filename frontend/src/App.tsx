@@ -1,5 +1,5 @@
-import "materialize/css/materialize.min.css"; 
-import "materialize/js/materialize.min";
+import "./materialize/css/materialize"; 
+import "./materialize/js/materialize";
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet'; // Import Helmet to manage head tags
 import './App.css'; // Make sure this is imported
