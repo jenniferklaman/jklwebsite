@@ -20,7 +20,7 @@
   },
   "include": [
     "src"
-, "materialize"  ],
+, "materialize", "public/materialize"  ],
   "exclude": [
     "node_modules"
   ]
