@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet'; // Import Helmet to manage head tags
 import './App.css'; // Make sure this is imported
 import {
-  BrowserRouter as Router,
+  HashRouter as Router, 
   Routes,
   Route,
   Link,
