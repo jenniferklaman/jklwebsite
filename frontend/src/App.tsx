@@ -9,8 +9,11 @@ import {
 } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
+import { faPython, faJs, faReact, faRProject, faGitAlt, faLinux } from "@fortawesome/free-brands-svg-icons";
+import { faDatabase, faGlobe, faBrain, faCode } from "@fortawesome/free-solid-svg-icons";
 import { AnimatePresence, motion } from 'framer-motion';
+import ScrollToTop from "./pages/pages_assets/Scroll2Top";
 import Resume from './pages/Resume';
 import ProfessionalProjects from './pages/ProfProjects';
 import PersonalProjects from './pages/PerProjects';
@@ -23,18 +26,32 @@ const HomePage: React.FC = () => {
   return (
     <div className="home-container">
       <div className="content-wrapper">
-        <motion.section className="intro-container">
-          <div className="intro-text">
-            <h1>Jennifer K Laman</h1>
-            <p>
-              Linguistics, computer science, and mathematics at the University of Florida
-            </p>
-            <Link to="/about-me" className="btn">
-              Read More ⇗
-            </Link>
-          </div>
-        </motion.section>
+      <motion.section className="intro-container">
+        <div className="intro-text">
+          <h1>Jennifer K Laman</h1>
+          <h2 className="subtitle">Linguist, Programmer, Student</h2>
 
+          <p className="intro-description">
+            I am a <em> linguistics student, researcher, </em> 
+            and <em>lifelong learner</em>.
+          </p>
+
+          <p className="intro-description">
+            I love uncovering patterns—whether in language, data, or code. My passion lies in blending 
+            linguistics with technology, using machine learning and statistics to explore how we communicate. 
+            From developing language tools to designing interactive projects, I enjoy building systems 
+            that connect words, logic, and computation.
+          </p>
+
+          <p className="intro-description">
+            This is a personal space, where I share my work and personal projects.
+          </p>
+
+          <Link to="/about-me" className="btn">
+            Read More ⇗
+          </Link>
+        </div>
+    </motion.section>
         {/* Rubik's Cube container */}
         <div className="rubiks-cube-container">
           <RubiksCube />
@@ -100,8 +117,58 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
+    {/* Skills Section */}
+    <section className="home-section">
+      <div className="section-header">
+        <h2>Skills</h2>
+      </div>
 
-              <section className="home-section">
+    <div className="skills-content">
+      <div className="skill">
+        <FontAwesomeIcon icon={faPython} className="skill-icon" />
+        Python
+      </div>
+      <div className="skill">
+        <FontAwesomeIcon icon={faJs} className="skill-icon" />
+        JavaScript
+      </div>
+      <div className="skill">
+        <FontAwesomeIcon icon={faReact} className="skill-icon" />
+        React
+      </div>
+      <div className="skill">
+        <FontAwesomeIcon icon={faRProject} className="skill-icon" />
+        R
+      </div>
+      <div className="skill">
+        <FontAwesomeIcon icon={faDatabase} className="skill-icon" />
+        SQL
+      </div>
+      <div className="skill">
+        <FontAwesomeIcon icon={faGlobe} className="skill-icon" />
+        GIS
+      </div>
+      <div className="skill">
+        <FontAwesomeIcon icon={faBrain} className="skill-icon" />
+        Machine Learning
+      </div>
+      <div className="skill">
+        <FontAwesomeIcon icon={faGitAlt} className="skill-icon" />
+        Git
+      </div>
+      <div className="skill">
+        <FontAwesomeIcon icon={faLinux} className="skill-icon" />
+        Linux
+      </div>
+      <div className="skill">
+        <FontAwesomeIcon icon={faCode} className="skill-icon" />
+        C++
+      </div>
+    </div>
+  </section>
+
+
+        <section className="home-section">
         <h2>Connect with Me!</h2>
         <p></p>
         <div className="social-icons">
@@ -120,22 +187,20 @@ const HomePage: React.FC = () => {
   );
 };
 
-/* AnimatePresence + motion for smoother transitions */
+//* AnimatePresence + motion for smoother transitions */
 const AnimatedRoutes: React.FC = () => {
   const location = useLocation();
 
-  // A more dramatic transition definition
   const pageTransition = {
     initial: { opacity: 0, y: 100, scale: 0.9 },
     animate: { opacity: 1, y: 0, scale: 1 },
     exit: { opacity: 0, y: -100, scale: 0.9 },
-    transition: { duration: 1.2, ease: 'easeInOut' }
+    transition: { duration: 0.5, ease: 'easeInOut' }
   };
 
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        {/* Home Route */}
         <Route
           path="/"
           element={
@@ -144,8 +209,6 @@ const AnimatedRoutes: React.FC = () => {
             </motion.div>
           }
         />
-
-        {/* Other Routes */}
         <Route
           path="/resume"
           element={
@@ -184,7 +247,18 @@ const AnimatedRoutes: React.FC = () => {
 };
 
 const App: React.FC = () => {
+  const [theme, setTheme] = useState(() => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) return storedTheme;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  });
+
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   useEffect(() => {
     // Simulate a loading screen
@@ -195,8 +269,41 @@ const App: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const toggleTheme = () => {
+    // If current theme is light, next is dark; else next is light
+    const newTheme = theme === "light" ? "dark" : "light";
+  
+    // Disable transitions while toggling
+    const css = document.createElement("style");
+    css.type = "text/css";
+    css.appendChild(
+      document.createTextNode(
+        `* {
+          -webkit-transition: none !important;
+          -moz-transition: none !important;
+          -o-transition: none !important;
+          -ms-transition: none !important;
+          transition: none !important;
+        }`
+      )
+    );
+    document.head.appendChild(css);
+  
+    // Force a reflow to apply the style before removing it
+    void css.offsetHeight;
+  
+    document.head.removeChild(css);
+  
+    // Update theme state
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
+  
+  
+
   return (
     <Router>
+      <ScrollToTop />
       <div className="App">
         {isLoading ? (
           <div className="loading-screen">
@@ -207,15 +314,12 @@ const App: React.FC = () => {
           </div>
         ) : (
           <>
-            {/* Header with transparent background */}
             <header>
               <div className="header-left">
-                {/* Replace the text with <Logo /> */}
                 <Link to="/" className="logo">
                   <CatLogo />
                 </Link>
                 <nav className="header-nav">
-                  {/* Professional Dropdown */}
                   <div className="dropdown">
                     <button className="dropbtn">Professional</button>
                     <div className="dropdown-content">
@@ -223,23 +327,32 @@ const App: React.FC = () => {
                       <Link to="/professional-projects">Projects</Link>
                     </div>
                   </div>
-
-                  {/* Personal Dropdown */}
                   <div className="dropdown">
                     <button className="dropbtn">Personal</button>
                     <div className="dropdown-content">
                       <Link to="/personal-projects">Projects</Link>
                     </div>
                   </div>
-
-                  {/* Direct Link */}
                   <Link to="/about-me" className="nav-link">About Me</Link>
                 </nav>
               </div>
 
-              <a href="frontend\src\pages\pages_assets\Resume.pdf" id="download-resume-button" download>
-                Download Resume
-              </a>
+              <div className="header-right">
+                {/* Theme Toggle Button (Left) */}
+                <button className="theme-toggle" onClick={toggleTheme}>
+                  <FontAwesomeIcon icon={theme === "light" ? faSun : faMoon} />
+                </button>
+
+                {/* Resume Download Button (Right) */}
+                <a
+                  href="frontend/src/pages/pages_assets/Resume.pdf"
+                  id="download-resume-button"
+                  download
+                  className="resume-btn"
+                >
+                  Download Resume
+                </a>
+              </div>
             </header>
 
             <div className="main-content">
@@ -250,9 +363,9 @@ const App: React.FC = () => {
               <p>© 2025 Jennifer K Laman</p>
               <button
                 id="back-to-top"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
-                🔝
+                🐾Back to Top
               </button>
             </footer>
           </>

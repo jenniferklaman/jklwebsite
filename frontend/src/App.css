@@ -1,4 +1,38 @@
+/* ========================= */
+/* THEME VARIABLES */
+/* ========================= */
+:root {
+  /* Dark Mode (Default) */
+  --bg-color: #1F1F1F;
+  --text-color: #ffffff;
+  --border-color: #ffffff;
+  --button-bg: transparent;
+  --button-text: #ffffff;
+  --text-color-rgb: 255, 255, 255; /* NEW: define the numeric values */
+  --border-color-rgb: 255, 255, 255; /* If you want an RGBA border too */
+
+  /* Hover states for Dark Mode */
+  --hover-bg: rgb(92, 92, 92); /* e.g. a white background on hover */
+  --hover-text: #bdbdbd; /* black text on hover */
+}
+
+/* Light Theme (Inverted Colors) */
+[data-theme="light"] {
+  --bg-color: #ffffff;
+  --text-color: #1F1F1F;
+  --border-color: #1F1F1F;
+  --button-bg: #1F1F1F;
+  --button-text: #ffffff;
+  --text-color-rgb: 31, 31, 31;  /* For light mode */
+  --border-color-rgb: 31, 31, 31;
+
+  /* Hover states for Light Mode */
+  --hover-bg: rgb(183, 183, 183); /* black background on hover */
+  --hover-text: #ffffff; /* white text on hover */
+}
+/* ========================= */
 /* Loading Screen Styles */
+/* ========================= */
 .loading-screen {
   position: fixed;
   top: 0;
@@ -8,7 +42,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(31, 31, 31, 0.8);
+  background-color: var(--loading-bg);
   z-index: 1000;
   flex-direction: column;
 }
@@ -18,7 +52,7 @@
   width: 80%;
   max-width: 500px;
   height: 10px;
-  background-color: #222;
+  background-color: var(--border-color);
   border-radius: 5px;
   overflow: hidden;
   margin-bottom: 20px;
@@ -28,7 +62,7 @@
 .progress-bar {
   width: 0%;
   height: 100%;
-  background-color: #ffffff;
+  background-color: var(--text-color);
   border-radius: 5px;
   animation: loading 3s ease-in-out infinite;
 }
@@ -36,7 +70,7 @@
 /* Loading Text */
 .loading-screen p {
   font-size: 20px;
-  color: #ffffff;
+  color: var(--text-color);
   margin-top: 15px;
 }
 
@@ -47,10 +81,13 @@
   100% { width: 100%; }
 }
 
+/* ========================= */
 /* General Reset / Body */
+/* ========================= */
 body {
-  background-color: #1F1F1F;
-  color: #ffffff;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding-top: 80px; /* Space for fixed header */
@@ -87,6 +124,7 @@ body {
   font-size: 16px;
   border-radius: 6px;
   text-decoration: none;
+  max-width: 90px;
   transition:
     transform 0.3s ease,
     background-color 0.3s ease,
@@ -100,13 +138,17 @@ body {
   color: black !important;
 }
 
-/* Header */
-/* HEADER: Semi-Transparent with Blur */
+/* ========================= */
+/* HEADER */
+/* ========================= */
+/* ========================= */
+/* HEADER */
+/* ========================= */
 header {
-  background-color: rgba(31, 31, 31, 0.6); /* Dark color, slightly transparent */
-  backdrop-filter: blur(6px);              /* Frosted glass blur */
-  -webkit-backdrop-filter: blur(6px);      /* Safari support */
-  
+  /* Use a CSS variable for the background so it can change with the theme */
+  background-color: var(--header-bg);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   width: 100%;
   height: 80px;
   display: flex;
@@ -117,9 +159,14 @@ header {
   top: 0;
   left: 0;
   z-index: 1000;
-  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 
+/* Header Right */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 
 /* Header Left (Logo + Nav) */
 .header-left {
@@ -131,7 +178,8 @@ header .logo {
   font-size: 25px;
   font-weight: bold;
   text-decoration: none;
-  color: #ffffff;
+  /* Use theme text color */
+  color: var(--text-color);
   margin-right: 20px;
 }
 
@@ -143,7 +191,7 @@ header .logo {
 }
 
 header a {
-  color: #ffffff;
+  color: var(--text-color);
   text-align: center;
   padding: 12px;
   text-decoration: none;
@@ -156,8 +204,8 @@ header a {
 
 /* Keep the active link highlight if desired */
 header a.active {
-  background-color: #ffffff;
-  color: #1F1F1F;
+  background-color: var(--button-text);
+  color: var(--button-bg);
 }
 
 /* Underline Animation for Top-Level Items */
@@ -177,9 +225,11 @@ header a.nav-link::after,
   bottom: 0; /* Adjust if you want it slightly above or below */
   width: 0;
   height: 2px;
-  background-color: #fff;
+  /* Use theme text color for the underline */
+  background-color: var(--text-color);
   transition: width 0.3s ease;
 }
+
 /* Expand underline on hover */
 header a.nav-link:hover::after,
 .dropbtn:hover::after {
@@ -190,14 +240,33 @@ header a.nav-link:hover::after,
 header a:hover:not(.active),
 .dropbtn:hover {
   background-color: transparent !important;
-  color: #ffffff !important;
+  /* Use theme text color on hover */
+  color: var(--text-color) !important;
+}
+
+/* ========================= */
+/* THEME TOGGLE BUTTON */
+/* ========================= */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 10px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
 }
 
 /* Download Resume Button */
 #download-resume-button {
-  background-color: transparent;
-  color: #ffffff;
-  border: 1px solid #ffffff;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: 1px solid var(--border-color);
+
   padding: 12px 20px;
   font-size: 18px;
   border-radius: 8px;
@@ -211,8 +280,24 @@ header a:hover:not(.active),
 }
 #download-resume-button:hover {
   transform: scale(1.1);
-  background-color: #ffffff;
-  color: #1F1F1F;
+  background-color: var(--button-text);
+  color: var(--button-bg);
+}
+
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 10px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
 }
 
 /* Dropdown Menu Styles */
@@ -220,9 +305,10 @@ header a:hover:not(.active),
   position: relative;
   display: inline-block;
 }
+
 .dropbtn {
   background-color: transparent;
-  color: #ffffff;
+  color: var(--text-color); /* replaced #ffffff with theme variable */
   border: none;
   font-size: 18px;
   padding: 12px;
@@ -230,37 +316,44 @@ header a:hover:not(.active),
   border-radius: 4px;
   transition: color 0.3s ease;
 }
+
 /* The dropdown content (hidden by default) */
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #1F1F1F;
+  background-color: var(--bg-color); /* replaced #1F1F1F with theme variable */
   min-width: 160px;
   z-index: 9999;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
+
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: #ffffff;
+  color: var(--text-color); /* replaced #ffffff with theme variable */
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
+
 /* Hover styles for links inside the dropdown */
 .dropdown-content a:hover {
-  background-color: #333;
+  background-color: var(--hover-bg);
+  color: var(--hover-text);
 }
+
+
 /* Show the dropdown when hovering on .dropdown */
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
 
 /* Main Content Layout */
 .main-content {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding-top: 10px; /* Adjust if you need more/less space below header */
+  padding-top: 25px; /* Adjust if you need more/less space below header */
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
@@ -284,12 +377,12 @@ header a:hover:not(.active),
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 10px;
-  color: #ffffff;
+  color: var(--text-color); /* changed from #ffffff */
 }
 .intro-text p {
   font-size: 16px;
   line-height: 1.6;
-  color: #ffffff;
+  color: var(--text-color); /* changed from #ffffff */
 }
 
 .content-wrapper {
@@ -315,26 +408,27 @@ footer {
   align-items: center;
   padding: 20px 20px;
   margin-top: auto;
-  color: #ffffff;
+  color: var(--text-color); /* changed from #ffffff */
 }
 footer p {
   margin: 0;
   font-size: 16px;
-  color: #ffffff;
+  color: var(--text-color); /* changed from #ffffff */
 }
 
 /* Back to Top Button */
 #back-to-top {
   background-color: transparent;
-  border: 1px solid #ffffff;
-  color: #ffffff;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  border: 1px solid var(--border-color); /* replaced #ffffff */
+  color: var(--text-color);             /* replaced #ffffff */
+  width: 120px;
+  height: 45px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 14px;
+  font-weight: bold;
   cursor: pointer;
   text-decoration: none;
   transition:
@@ -342,18 +436,22 @@ footer p {
     background-color 0.3s ease,
     color 0.3s ease;
 }
+
+/* Hover effect */
 #back-to-top:hover {
   transform: scale(1.1);
-  background-color: #ffffff;
-  color: #1F1F1F;
+  background-color: var(--hover-bg); /* replaced #ffffff */
+  color: var(--hover-text);         /* replaced #1F1F1F */
 }
+
+/* Focus effect */
 #back-to-top:focus {
   outline: none;
 }
 
 /* -----------------------------------
    NEW HOME SECTIONS (Work, Projects,
-   Blog, Connect with Me)
+   Skills, Connect with Me)
 ------------------------------------ */
 
 /* Container holding all the new sections */
@@ -372,7 +470,6 @@ footer p {
   padding: 1.5rem;
   background-color: transparent; /* Make container background transparent */
 }
-
 
 /* Header row inside each section */
 .section-header {
@@ -396,25 +493,24 @@ footer p {
 
 .see-all-link {
   font-size: 14px;
-  color: #bbb;
+  color: var(--text-color); /* was #bbb */
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .see-all-link:hover {
-  color: #fff;
+  color: var(--hover-text); /* was #fff */
 }
-
-
 
 /* Section content text and headings */
 .section-content h3 {
   font-size: 1.2rem;
   margin: 1rem 0 0.5rem;
-  color: #ffffff;
+  color: var(--text-color); /* was #ffffff */
 }
+
 .section-content p {
-  color: #cccccc;
+  color: var(--text-color); /* was #cccccc */
   margin-bottom: 1rem;
   line-height: 1.6;
 }
@@ -425,37 +521,70 @@ footer p {
 
 .work-details {
   font-weight: 500;
-  color: #bbb;
+  color: var(--text-color); /* was #bbb */
 }
 
 .work-description {
-  color: #ddd;
+  margin-left: 20px;
+  color: var(--text-color); /* was #ddd */
   line-height: 1.6;
   max-width: 700px; /* Limit width for better readability */
 }
 
-
+/* Project Items */
 .project-item {
   display: block;              /* Make it a block-level link */
   text-decoration: none;       /* Remove underline */
-  color: #ccc;                 /* Default text color */
-  padding: 1rem;               /* Spacing inside each item */
+  color: var(--text-color);    /* was #ccc */
+  padding: 1rem;
   border-radius: 8px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease; /* Added box-shadow transition */
   background-color: transparent; /* Keep it transparent by default */
   margin-bottom: 1rem;         /* Space between items, optional */
 }
 
 .project-item h3 {
-  margin: 0 0 0.5rem 0;        /* Adjust spacing for headings */
-  color: #fff;                 /* Headings in white */
+  margin: 0 0 0.5rem 0;
+  color: var(--text-color); /* was #fff */
 }
 
 .project-item:hover {
-  background-color: #333;      /* Slight highlight on hover */
-  color: #fff;                 /* Ensure text is still visible */
+  background-color: var(--hover-bg); /* was #333 */
+  color: var(--hover-text);         /* was #fff */
+  /* Subtle highlight using a small box-shadow */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
+/* Skills Section */
+.skills-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.skill {
+  border: 1px solid rgba(var(--border-color), 0.5); /* for a semi-transparent border */
+  background-color: rgba(var(--text-color-rgb), 0.1); /* was rgba(255, 255, 255, 0.1) */
+  border-color: rgba(var(--border-color));
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-color); /* was #fff */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.skill:hover {
+  transform: scale(1.1);
+}
 
 /* Social links list for "Connect with Me" */
 .social-icons {
@@ -466,7 +595,7 @@ footer p {
 
 .social-icon {
   font-size: 40px;
-  color: #ffffff;
+  color: var(--text-color); /* was #ffffff */
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
@@ -474,7 +603,6 @@ footer p {
   color: #6550A5; /* Adjust color for hover effect */
   transform: scale(1.2);
 }
-
 
 /* Responsive Layout for new sections */
 @media (max-width: 768px) {

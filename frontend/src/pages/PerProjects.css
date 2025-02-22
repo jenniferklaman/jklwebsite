@@ -1,89 +1,135 @@
-/* PerProjects.css */
+/* ========================= */
+/* THEME VARIABLES (Reference)*/
+:root {
+  --bg-color: #1F1F1F;
+  --text-color: #ffffff;
+  --border-color: #ffffff;
+  --button-bg: transparent;
+  --button-text: #ffffff;
 
-/* Container styling */
+  /* Additional Dark-Mode Variables */
+  --bg-color-secondary: #121212; /* Dark tile color */
+  --hover-bg: #232323;          /* Dark hover */
+  --border-color-rgb: 255, 255, 255;
+  --subtext-color: #b0b0b0;
+}
+
+[data-theme="light"] {
+  --bg-color: #ffffff;
+  --text-color: #1F1F1F;
+  --border-color: #939393;
+  --button-bg: #939393;
+  --button-text: #ffffff;
+
+  /* Additional Light-Mode Variables */
+  --bg-color-secondary: #f5f5f5;
+  --hover-bg: #e0e0e0;
+  --border-color-rgb: 31, 31, 31;
+  --subtext-color: #555555;
+}
+/* ========================= */
+
+/* General styling for the Personal Projects page */
 .personal-projects {
-  padding: 20px;
-  max-width: 1200px;
+  padding: 40px 20px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
+/* Title Styling */
 .personal-projects h1 {
-  text-align: center;
-  margin-bottom: 10px;
-  font-size: 2rem;
-  color: #333;
-  font-size: 46px;
+  text-align: left;
+  margin-bottom: 20px;
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--text-color);
 }
 
-/* Tiles wrapper as a flex container */
+/* Wrapper for project tiles */
 .tiles-wrapper {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-/* Individual project tile styling */
-.project-tile {
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  width: 300px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  opacity: 1;
-}
-
-.project-tile:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-/* Link styles for project titles */
-.project-tile a {
-  color: #333;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-  display: block;
-  margin-bottom: 10px;
-}
-
-.project-tile p {
-  font-size: 1rem;
-  color: #666;
-}
-
-/* Adjusting gif size in the personal projects section */
-.project-tile img {
-  max-width: 150px; /* Controls the width of the gif */
-  height: auto; /* Keeps the aspect ratio intact */
-}
-
-/* Styling for Play Game button */
-.featured-project-box button {
-  margin-right: 15px; /* Add margin to move the button a little to the right */
-  outline: 0;
+/* Project box styling */
+.featured-project-box {
+  background: var(--bg-color-secondary); /* was #121212 */
+  border-radius: 14px;
+  padding: 18px;
+  text-align: left;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  color: var(--text-color); /* was #ffffff */
+  border: 1px solid rgba(var(--border-color-rgb), 0.1); /* was rgba(255, 255, 255, 0.1) */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   cursor: pointer;
+  position: relative;
 }
 
+/* On hover, the tile gets lighter */
+.featured-project-box:hover {
+  background: var(--hover-bg); /* was #232323 */
+  box-shadow: 0 4px 12px rgba(var(--border-color-rgb), 0.15); /* was rgba(255, 255, 255, 0.15) */
+  transform: translateY(-3px);
+}
+
+/* Project title styling */
+.featured-project-box h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-color); /* was #ffffff */
+}
+
+/* Project description */
+.featured-project-box p {
+  font-size: 14px;
+  color: var(--subtext-color); /* was #b0b0b0 */
+  margin-top: 4px;
+}
+
+/* Container for buttons */
+.buttons-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Button Styling */
 .btn {
-  margin-right: 10px;  /* Add more space between the buttons */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background-color: var(--bg-color-secondary, #181818); /* fallback #181818 */
+  color: var(--text-color);
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn:hover {
-  background-color: #ff6f6f; /* Darker pink on hover */
+  background-color: #7c5bff; /* your custom hover color for buttons */
+  transform: scale(1.05);
 }
 
-  /* Focus state - removes the default focus outline */
-.btn:focus {
-  outline: none; /* Remove focus outline */
-  box-shadow: none; /* Ensure no box-shadow on focus */
+/* Project Image */
+.featured-project-img {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(var(--border-color-rgb), 0.2); /* was rgba(255, 255, 255, 0.2) */
 }
 
-/* Loading animation keyframes */
+/* Loading animation */
 @keyframes loadingPulse {
   0% {
     opacity: 0.6;
@@ -96,7 +142,27 @@
   }
 }
 
-/* Apply loading animation while the component is in its loading state */
+/* Apply loading animation */
 .loading-animation {
   animation: loadingPulse 1.5s infinite ease-in-out;
+}
+
+/* Make projects stack on smaller screens */
+@media (max-width: 768px) {
+  .tiles-wrapper {
+    max-width: 100%;
+  }
+  .featured-project-box {
+    width: 100%;
+    padding: 15px;
+    flex-direction: column;
+    text-align: center;
+  }
+  .featured-project-img {
+    max-width: 100%;
+    margin-top: 10px;
+  }
+  .buttons-container {
+    justify-content: center;
+  }
 }

@@ -1,118 +1,120 @@
+/* ========================= */
+/* THEME VARIABLES */
+/* ========================= */
+
+/* Dark Mode (Default) */
+:root {
+  --bg-color: #1F1F1F;
+  --text-color: #ffffff;
+  --border-color: #ffffff;
+  --button-bg: transparent;
+  --button-text: #ffffff;
+
+  /* Additional Dark-Mode Variables */
+  --bg-color-secondary: #121212; /* Dark tile color */
+  --hover-bg: #232323;          /* Dark hover */
+  --border-color-rgb: 255, 255, 255; 
+  --subtext-color: #b0b0b0;     /* For paragraphs, icons, etc. */
+}
+
+/* Light Mode (Inverted Colors) */
+[data-theme="light"] {
+  --bg-color: #ffffff;
+  --text-color: #1F1F1F;
+  --border-color: #939393;
+  --button-bg: #939393;
+  --button-text: #ffffff;
+
+  /* Additional Light-Mode Variables */
+  --bg-color-secondary: #f5f5f5; /* Light tile color */
+  --hover-bg: #e0e0e0;          /* Light hover */
+  --border-color-rgb: 31, 31, 31;
+  --subtext-color: #555555;     /* Light-mode subtext color */
+}
+
+/* ========================= */
 /* General styling for the Professional Projects page */
 .professional-projects {
   padding: 40px 20px;
-  max-width: 1200px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
+/* Title Styling */
 .professional-projects h1 {
-  text-align: center;
+  text-align: left;
   margin-bottom: 20px;
-  font-size: 46px;
+  font-size: 32px;
   font-weight: bold;
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 /* Wrapper for project tiles */
 .tiles-wrapper {
   display: flex;
-  flex-direction: column;  /* Stack projects */
-  gap: 15px;               /* Space between projects */
+  flex-direction: column;
+  gap: 10px;
   width: 100%;
-  max-width: 800px;        /* Limit width for readability */
-  margin: 0 auto;          /* Center the container */
-  align-items: center;      /* Ensures all projects are centered */
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 /* Project box styling */
 .featured-project-box {
-  background: #1e1e1e;
-  border: 1px solid #444;
-  border-radius: 12px;
-  width: 100%;
-  max-width: 500px;        /* Increased max-width for readability */
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  opacity: 1;
-  color: #ffffff;
+  background: var(--bg-color-secondary);
+  border-radius: 14px;
+  padding: 18px;
+  text-align: left;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  color: var(--text-color);
+  border: 1px solid rgba(var(--border-color-rgb), 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
 }
 
+/* On hover, the tile gets lighter */
 .featured-project-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+  background: var(--hover-bg);
+  box-shadow: 0 4px 12px rgba(var(--border-color-rgb), 0.15);
+  transform: translateY(-3px);
 }
 
-/* Styling for project titles */
+/* Project title styling */
 .featured-project-box h2 {
-  font-size: 22px;
-  margin-bottom: 10px;
-  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-color);
 }
 
 /* Project description */
 .featured-project-box p {
-  font-size: 16px;
-  color: #bbbbbb;
-  line-height: 1.6;
+  font-size: 14px;
+  color: var(--subtext-color);
+  margin-top: 4px;
 }
 
-/* Explore Project Button */
-.btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 15px;
-  background-color: black; /* Fixed invalid color */
-  color: white;
-  font-size: 16px;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+/* Button to indicate external link */
+.project-link-icon {
+  font-size: 18px;
+  color: var(--subtext-color);
+  transition: color 0.3s ease;
 }
 
-.btn:hover {
-  background-color: black;
-  transform: scale(1.05);
-}
-
-/* Project Image */
-.featured-project-img {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  margin-top: 15px;
-  border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(255, 255, 255, 0.2);
-}
-
-/* Loading animation */
-@keyframes loadingPulse {
-  0% {
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.6;
-  }
-}
-
-/* Apply loading animation */
-.loading-animation {
-  animation: loadingPulse 1.5s infinite ease-in-out;
+.featured-project-box:hover .project-link-icon {
+  color: var(--text-color);
 }
 
 /* Make projects stack on smaller screens */
 @media (max-width: 768px) {
   .tiles-wrapper {
-    flex-direction: column;
-    align-items: center;
+    max-width: 100%;
   }
-
   .featured-project-box {
-    width: 90%;
-    max-width: 400px;
+    width: 100%;
+    padding: 15px;
   }
 }

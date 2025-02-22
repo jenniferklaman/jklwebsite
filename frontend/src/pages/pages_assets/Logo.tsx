@@ -11,8 +11,8 @@ export default function CatLogo() {
     rightEye: { x: 83, y: 88 },
     leftEar: { x: 60 },
     rightEar: { x: 90 },
-    leftWhiskers: { x: 45, y: 95 },  // Move relative to head
-    rightWhiskers: { x: 105, y: 95 }, // Move relative to head
+    leftWhiskers: { x: 45, y: 100 },  // Move relative to head
+    rightWhiskers: { x: 105, y: 100 }, // Move relative to head
   });
 
   // ----------------------------
@@ -72,11 +72,11 @@ export default function CatLogo() {
       },
       leftWhiskers: {
         x: 45 + whiskerMoveX,
-        y: 95 + whiskerMoveY,
+        y: 100 + whiskerMoveY,
       },
       rightWhiskers: {
         x: 105 + whiskerMoveX,
-        y: 95 + whiskerMoveY,
+        y: 100 + whiskerMoveY,
       },
     });
   }, []);
