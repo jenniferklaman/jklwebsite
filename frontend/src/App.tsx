@@ -21,6 +21,7 @@ import PersonalProjects from './pages/PerProjects';
 import AboutMe from './pages/Aboutme';
 import RubiksCube from './assets/Rubiks';
 import CatLogo from './pages/pages_assets/Logo';
+import resumeFile from './pages/pages_assets/Resume.pdf';
 
 /* A separate component for the "home" route's content */
 const HomePage: React.FC = () => {
@@ -346,14 +347,9 @@ const App: React.FC = () => {
                 <button className="theme-toggle" onClick={toggleTheme}>
                   <FontAwesomeIcon icon={theme === "light" ? faSun : faMoon} />
                 </button>
-                <a
-                  href="frontend/src/pages/pages_assets/Resume.pdf"
-                  id="download-resume-button"
-                  download
-                  className="resume-btn"
-                >
-                  Download Resume
-                </a>
+                <a href={resumeFile} className="resume-btn" download="Jennifer_Laman_Resume.pdf" id="download-resume-button">
+                Download Resume
+              </a>
               </div>
             </header>
 
