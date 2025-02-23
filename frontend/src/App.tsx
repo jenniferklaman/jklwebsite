@@ -22,6 +22,7 @@ import AboutMe from './pages/Aboutme';
 import RubiksCube from './assets/Rubiks';
 import CatLogo from './pages/pages_assets/Logo';
 import resumeFile from './pages/pages_assets/Resume.pdf';
+import SPTrivia from './pages/SPTrivia'; // Import SPTrivia component
 
 /* A separate component for the "home" route's content */
 const HomePage: React.FC = () => {
@@ -240,6 +241,14 @@ const AnimatedRoutes: React.FC = () => {
           element={
             <motion.div {...pageTransition}>
               <AboutMe />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/sp-trivia"
+          element={
+            <motion.div {...pageTransition}>
+              <SPTrivia />
             </motion.div>
           }
         />

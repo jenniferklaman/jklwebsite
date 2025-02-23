@@ -36,7 +36,7 @@ const projects: Project[] = [
     description: `My roommates and I like to have shower parties and ask trivia questions.`,
     link: 'https://github.com/jenniferklaman/ShowerPartyTrivia',
     image: MenuWizard,
-    gameLink: '/shower-party-trivia',
+    gameLink: '/sp-trivia',
   },
 ];
 

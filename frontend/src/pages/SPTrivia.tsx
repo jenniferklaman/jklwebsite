@@ -55,6 +55,7 @@ const SPTrivia: React.FC = () => {
   };
 
   return (
+    <div className="trivia-container">
     <div className="trivia-game">
       {gameStage === 'welcome' && (
         <div className="welcome-screen">
@@ -110,6 +111,7 @@ const SPTrivia: React.FC = () => {
           <button onClick={goBack}>Exit</button>
         </div>
       )}
+      </div>
     </div>
   );
 };
